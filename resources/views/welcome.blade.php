@@ -10,6 +10,9 @@
 
     </head>
     <body>
+        <div class="header">
+            <h1><strong>Melnā poga</strong></h1>
+        </div>
         <div>
             <ul>
                 <li class="float_left"><a href="#" class="navbar_item">Home</a></li>

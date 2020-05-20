@@ -1,7 +1,19 @@
-/* NAVBAR    NAVBAR    NAVBAR    NAVBAR    NAVBAR */
 body{
   font-family: Courier, Ariel;
+  background-color: #f1f1f1;
 }
+/* HEADER    HEADER    HEADER    HEADER    HEADER */
+.header{
+  font-family: Courier, Ariel;
+  color:#333;
+  font-size: 40px;
+  text-align: center;
+  background-color: rgb(190, 186, 178);
+  padding-bottom: 50px;
+  padding-top: 50px;
+}
+
+/* NAVBAR    NAVBAR    NAVBAR    NAVBAR    NAVBAR */
 ul {
     list-style-type: none;
     overflow: hidden;
@@ -26,6 +38,6 @@ ul {
     float: left;
   }
 
-  .navbar_item-:hover{
-    background-color: #111;
+  .navbar_item:hover{
+    background-color: black;
   }
