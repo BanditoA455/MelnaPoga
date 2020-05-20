@@ -15,6 +15,7 @@
         </div>
         <div>
             <ul>
+                <li class="float_left"><img class="logo" src="/images/logo.png"></li>
                 <li class="float_left"><a href="#" class="navbar_item">Home</a></li>
                 <li class="float_left"><a href="#" class="navbar_item">Support</a></li>
                 <li class="float_left"><a href="#" class="navbar_item">About</a></li>

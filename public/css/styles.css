@@ -8,18 +8,26 @@ body{
   color:#333;
   font-size: 40px;
   text-align: center;
-  background-color: rgb(190, 186, 178);
-  padding-bottom: 50px;
-  padding-top: 50px;
+  background-color: rgb(178, 190, 190);
+  padding-bottom: 40px;
+  padding-top: 40px;
 }
 
 /* NAVBAR    NAVBAR    NAVBAR    NAVBAR    NAVBAR */
+.logo{
+  width: 60px;
+}
+
+.logo:hover{
+  background-color: black;
+}
 ul {
     list-style-type: none;
     overflow: hidden;
     position: sticky;
     background-color: #333;
   }
+
   .navbar_item{
     display: block;
     font-size: 20px;
@@ -41,3 +49,40 @@ ul {
   .navbar_item:hover{
     background-color: black;
   }
+
+  /*SIDE NAVIGATION    SIDE NAVIGATION    SIDE NAVIGATION    SIDE NAVIGATION*/
+.sidenav{
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 80px;
+  opacity: 0.8;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 60px;
+  margin-left: 50px;
+}
+
+.sidenav a{
+ font-family: Anton;
+ padding: 8px 8px 8px 32px;
+ text-decoration: none;
+ font-size: 25px;
+ color: #F3B446;
+ display: block;
+ transition: 0.3s;
+}
+
+.sidenav a:hover{
+  color: #F59B00;
+}
