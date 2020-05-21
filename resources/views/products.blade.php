@@ -2,6 +2,7 @@
 <html>
 <body>
 
+    <h1>product page</h1>
     <table>
     @foreach($prods as $data)
     <tr >
