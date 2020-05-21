@@ -48,6 +48,7 @@ ul {
 
   .navbar_item:hover{
     background-color: black;
+    color: #F59B00;
   }
 
   /*SIDE NAVIGATION    SIDE NAVIGATION    SIDE NAVIGATION    SIDE NAVIGATION*/
@@ -55,7 +56,6 @@ ul {
   height: 100%;
   width: 0;
   position: absolute;
-  /* z-index: 1; */
   top: 183px;
   left: 0px;
   background-color: #111;
@@ -74,7 +74,7 @@ ul {
 }
 
 .sidenav a{
- font-family: Anton;
+ font-family: Courier, Ariel;
  padding: 8px 8px 8px 32px;
  text-decoration: none;
  font-size: 25px;
@@ -85,4 +85,14 @@ ul {
 
 .sidenav a:hover{
   color: #F59B00;
+  background-color: black;
+}
+
+.label-div{
+  margin: 20px;
+  color: #F3B446;
+  font-size:20px;
+}
+input{
+  font-size: 20px;
 }
