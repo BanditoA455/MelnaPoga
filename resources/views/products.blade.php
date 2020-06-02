@@ -13,7 +13,7 @@
       <td style="border: 1px solid black">{{$data->type}}</td>
       <td><img src={{asset('images/'.$data->ID.'.jpg')}}></td>
     </tr>
-@endforeach
+    @endforeach
 </table>
 
 
