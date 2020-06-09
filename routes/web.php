@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+// navbar links
 Route::get('/', function () {
     return view('welcome');
 });
