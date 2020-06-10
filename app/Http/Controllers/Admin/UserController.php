@@ -67,6 +67,9 @@ class UserController extends Controller
         return view('admin.users.edit')->with([
             'user' => $user
         ]);
+        // return view('admin.users.edit')->with([
+        //     'user' => $user
+        // ]);
     }
 
     /**
@@ -78,7 +81,7 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        //
+        return redirect()->route('admin.users.index');
     }
 
     /**
@@ -89,6 +92,7 @@ class UserController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete();
+        return redirect()->route('admin.users.index');
     }
 }

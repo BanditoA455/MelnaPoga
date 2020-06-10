@@ -3,7 +3,7 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" type="text/css" href="{{ asset('/css/styles.css') }}">
+        <link href="{{ asset("css/template.css") }}" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/reset.css') }}">
         <script type="text/javascript" src="{{ URL::asset('js/javascript.js') }}"></script>
 
@@ -19,6 +19,8 @@
                 <li class="float_left"><a href="{{ url('/') }}" class="navbar_item">Home</a></li>
                 <li class="float_left"><a href="{{ url('/support') }}" class="navbar_item">Support</a></li>
                 <li class="float_left"><a href="{{ url('/about') }}" class="navbar_item">About</a></li>
+                <li class="float_left"><a href="{{ route('admin.users.index') }}" class="navbar_item">Users</a></li>
+
                 <li class="float_right"><a href="{{ url('/register') }}" class="navbar_item">Register</a></li>
                 <li class="float_right"><a href="{{ url('/login') }}" class="navbar_item">Log in</a></li>
               </ul>

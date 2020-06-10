@@ -28,9 +28,6 @@
 @endsection
 
 @section('BodyContent')
-    <h1>Admin controlls the users</h1>
-    <h1>muhahahahahah</h1>
-    {{$users}}
     <table id="customers">
         <tr>
             <th>#</th>
@@ -41,16 +38,22 @@
         </tr>
         @foreach ( $users as $user)
         <tr>
-            <td>{{$user->UserID}}</td>
+            <td>{{$user->id}}</td>
             <td>{{$user->FirstName}}</td>
             <td>{{$user->LastName}}</td>
             <td>{{$user->email}}</td>
             <td>
-            <a href="{{route('admin.users.edit', $user->UserID)}}" > <input type="button" value="Edit"> </a>
-            <a href="{{route('admin.users.destroy', $user->UserID)}}" > <input type="button" value="Delete"> </a>
+            @if ($user->role == 'user')
+            <a href="{{route('admin.users.edit', $user->id)}}" > <input type="button" value="Edit"> </a>
+            <form action="{{ route('admin.users.destroy', $user) }}" method="POST">
+                @csrf
+                {{method_field('DELETE')}}
+                <input  type="submit" value="Delete">
+            </form>
+            
+            @endif
             </td>
         </tr>
-
         @endforeach
 
     </table>
