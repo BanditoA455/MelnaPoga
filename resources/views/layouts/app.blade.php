@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {{-- <link rel="stylesheet" type="text/css" href="{{ asset('/css/styles.css') }}"> --}}
-        <link href="{{ asset("css/styles.css") }}" rel="stylesheet">
+        <link href="{{ asset("css/template.css") }}" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/reset.css') }}">
         <script type="text/javascript" src="{{ URL::asset('js/javascript.js') }}"></script>
         @yield('HeadContent')
