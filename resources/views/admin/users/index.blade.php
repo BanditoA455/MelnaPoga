@@ -30,7 +30,7 @@
 @section('BodyContent')
     <h1>Admin controlls the users</h1>
     <h1>muhahahahahah</h1>
-
+    {{$users}}
     <table id="customers">
         <tr>
             <th>#</th>
@@ -39,7 +39,6 @@
             <th>email</th>
             <th>Actions</th>
         </tr>
-
         @foreach ( $users as $user)
         <tr>
             <td>{{$user->UserID}}</td>
@@ -51,7 +50,6 @@
             <a href="{{route('admin.users.destroy', $user->UserID)}}" > <input type="button" value="Delete"> </a>
             </td>
         </tr>
-        {{$user->FirstName}} - {{$user->email}}
 
         @endforeach
 
