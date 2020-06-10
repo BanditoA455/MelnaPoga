@@ -1,0 +1,104 @@
+body{
+  font-family: Courier, Ariel;
+  background-color: #f1f1f1;
+}
+
+/* HEADER    HEADER    HEADER    HEADER    HEADER */
+.header{
+  font-family: Courier, Ariel;
+  color:#333;
+  font-size: 50px;
+  text-align: center;
+  background-color: rgb(178, 190, 190);
+  padding-bottom: 60px;
+  padding-top: 50px;
+}
+
+/* NAVBAR    NAVBAR    NAVBAR    NAVBAR    NAVBAR */
+.logo{
+  width: 60px;
+}
+
+.logo:hover{
+  background-color: black;
+}
+ul {
+    list-style-type: none;
+    overflow: hidden;
+    position: sticky;
+    background-color: #333;
+  }
+
+  .navbar_item{
+    display: block;
+    font-size: 20px;
+    color: rgb(245, 217, 124);
+    text-align: center;
+    padding: 20px 20px;
+    text-decoration: none;
+    font-family: Courier;
+  }
+
+  .float_right{
+    float: right;
+  }
+
+  .float_left{
+    float: left;
+  }
+
+  .navbar_item:hover{
+    background-color: black;
+    color: #F59B00;
+  }
+
+  /*SIDE NAVIGATION    SIDE NAVIGATION    SIDE NAVIGATION    SIDE NAVIGATION*/
+.sidenav{
+  height: 100%;
+  width: 0;
+  position: absolute;
+  top: 223px;
+  left: 0px;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 80px;
+  opacity: 0.8;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 60px;
+  margin-left: 50px;
+}
+
+.sidenav .closebtn:hover{
+  background-color: #111;
+  font-size: 70px;
+}
+
+.sidenav a{
+ font-family: Courier, Ariel;
+ padding: 8px 8px 8px 32px;
+ text-decoration: none;
+ font-size: 25px;
+ color: #F3B446;
+ display: block;
+ transition: 0.3s;
+}
+
+.sidenav a:hover{
+  color: #F59B00;
+  background-color: black;
+}
+
+.label-div{
+  margin: 20px;
+  color: #F3B446;
+  font-size:200px;
+}
+input{
+  font-size: 20px;
+}
