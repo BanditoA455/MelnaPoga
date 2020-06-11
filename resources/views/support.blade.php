@@ -1,4 +1,10 @@
-@extends('layouts.app')
+@extends('layouts.app1')
+
+@section('HeadContent')
+@endsection
+
+@section('SideNavContent')
+@endsection
 
 @section('BodyContent')
     <div class="abcde">

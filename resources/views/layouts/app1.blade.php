@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
+        <meta name="csrf-token" content="{{ csrf_token() }}">
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         {{-- <link rel="stylesheet" type="text/css" href="{{ asset('/css/styles.css') }}"> --}}
@@ -9,7 +10,7 @@
         <script type="text/javascript" src="{{ URL::asset('js/javascript.js') }}"></script>
         @yield('HeadContent')
 
-        <title>Laravel</title>
+        <title>{{ config('app.name', 'Laravel') }}</title>
     </head>
     <body>
         <div class="header">
@@ -26,9 +27,25 @@
                     <li class="float_left"><a href="{{ route('admin.users.index') }}" class="navbar_item">Users</a></li>
                 @endcan
 
-                <li class="float_right"><a href="{{ url('/register') }}" class="navbar_item">Register</a></li>
-                <li class="float_right"><a href="{{ url('/login') }}" class="navbar_item">Log in</a></li>
-              </ul>
+                @guest
+                
+                
+                @if (Route::has('register'))
+                    <li class="float_right"><a href="{{ route('register') }}" class="navbar_item">Register</a></li>
+                    <li class="float_right"><a href="{{ route('login') }}" class="navbar_item">Log in</a></li>
+                @endif
+                
+                @else
+                    <li class="float_right">
+                        <a class="navbar_item" href="{{ route('logout') }}"
+                            onclick="event.preventDefault();
+                            document.getElementById('logout-form').submit();">
+                            {{ __('Logout') }}
+                        </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> @csrf </form>
+                    </li>
+                @endguest
+            </ul>
         </div>
 
         <div id="sidenav" class="sidenav">
@@ -36,6 +53,7 @@
             @yield('SideNavContent') 
         </div>
 
+        @include('alerts.alerts')
         @yield('BodyContent')
 
     </body>
