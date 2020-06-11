@@ -15,7 +15,7 @@ class CreateReviewsTable extends Migration
     {
         Schema::create('reviews', function (Blueprint $table) {
 
-            $table->bigIncrements('reviewID');
+            $table->bigIncrements('id');
             $table->foreign('userID')->references('id')->on('users');
             $table->string('review');
             $table->decimal('rating', 38, 2);
