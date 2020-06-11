@@ -32,7 +32,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        $products = DB::table('products')->get();
+        //$products = DB::table('products')->get();
+        $products = Products::all();
         return view('home')->with('products', $products); 
     }
 

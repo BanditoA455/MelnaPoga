@@ -106,5 +106,21 @@ input{
 
 /* DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS */
 .products{
-  
+  margin-top: 20px;
+  margin-left: 370px;
+  margin-right: 250px;
+  position: relative;
+  border-style: solid;
+  border-width: 2px;
+  border-color: rgb(131, 183, 192);
+}
+
+.product-picture{
+  display: inline-block;
+  border:1px solid blue;
+}
+
+.product-text{
+  display: inline-block;
+  border:1px solid red;
 }

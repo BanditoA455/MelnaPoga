@@ -37,15 +37,20 @@
 @endsection
 
 @section('BodyContent')
+
     @foreach ( $products as $product)
-        <div>
+        <div class="products">
             <ul>
-                <li>{{$product->productname}}</li>
-                <li>{{$product->producttype}}</li>
-                <li>{{$product->productcolor}}</li>
-                <li>{{$product->productdiameter}}</li>
-                <li>{{$product->productprice}}</li>
+                <div class="float-left product-picture"><img src={{asset('images/'.$product->id.'.jpg')}} alt="{{$product->productname}}"></div>
+                <div class="float-left product-text">
+                    <li>{{$product->productname}}</li>
+                    <li>{{$product->producttype}}</li>
+                    <li>{{$product->productcolor}}</li>
+                    <li>{{$product->productdiameter}}</li>
+                    <li>{{$product->productprice}}</li>
+                </div>
             </ul>
         </div>
     @endforeach
+    
 @endsection
