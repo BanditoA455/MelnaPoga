@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+
     "content-hash": "5e01b99a3996ec2687c84518d8f9bfb1",
     "packages": [
         {
@@ -1055,6 +1056,7 @@
                 {
                     "name": "Adam Engebretson",
                     "email": "adam@laravelcollective.com"
+
                 },
                 {
                     "name": "Taylor Otwell",
@@ -1066,6 +1068,7 @@
             "time": "2020-05-19T18:02:16+00:00"
         },
         {
+
             "name": "league/commonmark",
             "version": "1.4.3",
             "source": {
