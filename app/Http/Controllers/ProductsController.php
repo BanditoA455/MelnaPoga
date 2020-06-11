@@ -10,8 +10,10 @@ class ProductsController extends Controller
    { $prods = DB::table('products')->get();
        return view('products', ['prods' => $prods]);
    }
-   public function filter()
-   {
-        return view('welcome');
-   }
+
+   public function index()
+    {
+        $products = DB::table('products')->get();
+        return view('home')->with('products', $products); 
+    }
 }

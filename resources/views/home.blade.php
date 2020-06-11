@@ -37,5 +37,15 @@
 @endsection
 
 @section('BodyContent')
-
+    {{-- @foreach ( $products as $product)
+        
+            <ul>
+                <li>{{$product->productname}}</li>
+                <li>{{$product->procucttype}}</li>
+                <li>{{$product->productcolor}}</li>
+                <li>{{$product->productdiameter}}</li>
+                <li>{{$product->productprice}}</li>
+            </ul>
+        
+    @endforeach --}}
 @endsection
