@@ -12,6 +12,9 @@ class ProductSeeder extends Seeder
      */
     public function run()
     {
+        Schema::disableForeignKeyConstraints();
+        DB::table('products')->truncate();
+        Schema::enableForeignKeyConstraints();
         DB::table('products')->insert([
             'productname' => 'flat golden button',
             'procucttype' => 'flat',

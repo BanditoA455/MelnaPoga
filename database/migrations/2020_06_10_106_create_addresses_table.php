@@ -13,6 +13,7 @@ class CreateAddressesTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('addresses');
         Schema::create('addresses', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('userID');
