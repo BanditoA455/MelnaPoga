@@ -18,6 +18,8 @@ class CreateReviewsTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('userID');
             $table->foreign('userID')->references('id')->on('users');
+            $table->unsignedBigInteger('productID');
+            $table->foreign('userID')->references('id')->on('products');
             $table->string('review');
             $table->decimal('rating', 38, 2);
         });
