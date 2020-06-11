@@ -14,9 +14,9 @@ class CreateOrderedProductsTable extends Migration
     public function up()
     {
         Schema::create('ordered_products', function (Blueprint $table) {
-            $table->bigIncrements('orderedproductsID');
-            $table->foreign('orderID')->references('orderID')->on('orders');
-            $table->foreign('ProductID')->references('orderID')->on('products');
+            $table->bigIncrements('id');
+            $table->foreign('orderID')->references('id')->on('orders');
+            $table->foreign('ProductID')->references('id')->on('products');
             $table->integer('amount');
             $table->decimal('price', 38, 2);
         });
