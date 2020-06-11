@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('productname');
             $table->string('procucttype');
             $table->string('productcolor');
-            $table->string('productdiameter');
+            $table->integer('productdiameter');
             $table->decimal('productprice', 38, 2);
 
 

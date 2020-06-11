@@ -13,9 +13,13 @@ class ProductSeeder extends Seeder
     public function run()
     {
         DB::table('products')->insert([
-            'name' => Str::random(10),
-            'type' => Str::random(10),
-            'price' => '10.55',
+            'productname' => 'flat golden button',
+            'procucttype' => 'flat',
+            'productcolor' => 'golden',
+            'productdiameter' => '14',
+            'productprice' => '10.55',
             ]);
     }
 }
+
+
