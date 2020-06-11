@@ -76,7 +76,7 @@ ul {
 
 .sidenav .closebtn:hover{
   background-color: #111;
-  font-size: 70px;
+  font-size: 20px;
 }
 
 .sidenav a{
@@ -97,8 +97,9 @@ ul {
 .label-div{
   margin: 20px;
   color: #F3B446;
-  font-size:200px;
+  font-size:20px;
 }
 input{
   font-size: 20px;
+  margin-left: 20px;
 }

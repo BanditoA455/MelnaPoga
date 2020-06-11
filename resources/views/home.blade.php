@@ -6,24 +6,29 @@
 @section('SideNavContent')
     {{!! Form::open(['action' => 'ProductsController@display', 'method' => 'POST']) !!}}
     <div class="label-div">
-        {{Form::label('name', 'Name', ['class' => 'label']) }}
+        {{Form::label('SmallD', 'Smallest diameter', ['class' => 'label']) }}
         <br>
-        {{Form::text('name', '', ['class' => 'input']) }}
+        {{Form::text('SmallD', '', ['class' => 'input']) }}
+    </div>
+    <div class="label-div">
+        {{Form::label('LargeD', 'Largest diameter', ['class' => 'label']) }}
+        <br>
+        {{Form::text('LargeD', '', ['class' => 'input']) }}
     </div>
     <div class="label-div">
         {{Form::label('type', 'Type', ['class' => 'label']) }}
         <br>
-        {{Form::select('type', ['L' => 'large', 'XL' => 'extra large', 'class' => 'input']) }}
+        {{Form::select('type', ['class' => 'input']) }}
     </div>
     <div class="label-div">
-        {{Form::label('start', 'Cheapest:', ['class' => 'label']) }}
+        {{Form::label('cheap', 'Cheapest:', ['class' => 'label']) }}
         <br>
-        {{Form::number('start', '', ['class' => 'input']) }}
+        {{Form::number('cheap', '', ['class' => 'input']) }}
     </div> 
     <div class="label-div">
-        {{Form::label('end', 'Most expensive:', ['class' => 'label']) }}
+        {{Form::label('exp', 'Most expensive:', ['class' => 'label']) }}
         <br>
-        {{Form::number('end', '', ['class' => 'input']) }}
+        {{Form::number('exp', '', ['class' => 'input']) }}
     </div>
     <div class="filter-button">
         {{Form::submit('Add filters') }}
