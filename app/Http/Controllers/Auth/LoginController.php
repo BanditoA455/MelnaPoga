@@ -45,7 +45,6 @@ class LoginController extends Controller
         } else {
             $this->redirectTo = route('home');
             return $this->redirectTo;
-            //return view('about');
         }
     }
 }
