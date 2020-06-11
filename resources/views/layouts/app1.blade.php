@@ -29,9 +29,10 @@
 
                 @guest
                 
-                <li class="float_right"><a href="{{ route('login') }}" class="navbar_item">Log in</a></li>
+                
                 @if (Route::has('register'))
                     <li class="float_right"><a href="{{ route('register') }}" class="navbar_item">Register</a></li>
+                    <li class="float_right"><a href="{{ route('login') }}" class="navbar_item">Log in</a></li>
                 @endif
                 
                 @else
@@ -43,7 +44,6 @@
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> @csrf </form>
                     </li>
-
                 @endguest
             </ul>
         </div>

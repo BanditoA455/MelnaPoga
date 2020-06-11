@@ -1,23 +1,36 @@
-@extends('layouts.app')
+@extends('layouts.app1')
 
-@section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">Dashboard</div>
+@section('HeadContent')
+@endsection
 
-                <div class="card-body">
-                    @if (session('status'))
-                        <div class="alert alert-success" role="alert">
-                            {{ session('status') }}
-                        </div>
-                    @endif
-
-                    You are logged in!
-                </div>
-            </div>
-        </div>
+@section('SideNavContent')
+    {{!! Form::open(['action' => 'ProductsController@display', 'method' => 'POST']) !!}}
+    <div class="label-div">
+        {{Form::label('name', 'Name', ['class' => 'label']) }}
+        <br>
+        {{Form::text('name', '', ['class' => 'input']) }}
     </div>
-</div>
+    <div class="label-div">
+        {{Form::label('type', 'Type', ['class' => 'label']) }}
+        <br>
+        {{Form::select('type', ['L' => 'large', 'XL' => 'extra large', 'class' => 'input']) }}
+    </div>
+    <div class="label-div">
+        {{Form::label('start', 'Cheapest:', ['class' => 'label']) }}
+        <br>
+        {{Form::number('start', '', ['class' => 'input']) }}
+    </div> 
+    <div class="label-div">
+        {{Form::label('end', 'Most expensive:', ['class' => 'label']) }}
+        <br>
+        {{Form::number('end', '', ['class' => 'input']) }}
+    </div>
+    <div class="filter-button">
+        {{Form::submit('Add filters') }}
+    </div>
+    {{!! Form::close() !!}}
+@endsection
+
+@section('BodyContent')
+
 @endsection
