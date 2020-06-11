@@ -13,13 +13,14 @@ class CreateReviewsTable extends Migration
      */
     public function up()
     {
+        Schema::dropIfExists('reviews');
         Schema::create('reviews', function (Blueprint $table) {
 
             $table->bigIncrements('id');
             $table->unsignedBigInteger('userID');
             $table->foreign('userID')->references('id')->on('users');
             $table->unsignedBigInteger('productID');
-            $table->foreign('userID')->references('id')->on('products');
+            $table->foreign('productID')->references('id')->on('products');
             $table->string('review');
             $table->decimal('rating', 38, 2);
         });
