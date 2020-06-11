@@ -1040,10 +1040,10 @@
                 "laravel",
                 "ui"
             ],
-            "time": "2020-04-29T15:06:45+00:00"
+            "time": "2020-04-29T15:06:45+00:00",
                     "name": "Adam Engebretson",
                     "email": "adam@laravelcollective.com"
-                },
+                }
                 {
                     "name": "Taylor Otwell",
                     "email": "taylorotwell@gmail.com"

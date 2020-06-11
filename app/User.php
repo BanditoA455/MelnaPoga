@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'Firstname', 'email', 'password', 'LastName', 'role',
     ];
 
     /**
@@ -36,4 +36,20 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // public function hasManyRoles($roles){
+    //     if($this->whereIn('roles', $roels)){
+    //         return true;
+    //     }else{
+    //         return false;
+    //     }
+    // }
+
+    public function hasRole($role){
+        if ($this->role == $role){
+            return true;
+        } else{
+            return false;
+        }
+    }
 }
