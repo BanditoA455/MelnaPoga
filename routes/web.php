@@ -37,6 +37,6 @@ Route::get('products','ProductsController@display');
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::namespace('Admin')->prefix('admin')->name('admin.')->group(function(){
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UserController', ['except' => ['show', 'create', 'store'] ]);
 });

@@ -21,7 +21,9 @@
                 <li class="float_left"><a href="{{ url('/') }}" class="navbar_item">Home</a></li>
                 <li class="float_left"><a href="{{ url('/support') }}" class="navbar_item">Support</a></li>
                 <li class="float_left"><a href="{{ url('/about') }}" class="navbar_item">About</a></li>
-                <li class="float_left"><a href="{{ route('admin.users.index') }}" class="navbar_item">Users</a></li>
+                @can('manage-users')
+                    <li class="float_left"><a href="{{ route('admin.users.index') }}" class="navbar_item">Users</a></li>
+                @endcan
 
                 <li class="float_right"><a href="{{ url('/register') }}" class="navbar_item">Register</a></li>
                 <li class="float_right"><a href="{{ url('/login') }}" class="navbar_item">Log in</a></li>

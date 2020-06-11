@@ -48,6 +48,7 @@
             <form action="{{ route('admin.users.destroy', $user) }}" method="POST">
                 @csrf
                 {{method_field('DELETE')}}
+
                 <input  type="submit" value="Delete">
             </form>
             
