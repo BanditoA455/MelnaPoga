@@ -22,7 +22,7 @@
           }
           @endforeach
         </select>
-
+</div>
 
 </body>
 </html>

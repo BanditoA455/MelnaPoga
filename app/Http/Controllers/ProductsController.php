@@ -11,8 +11,11 @@ class ProductsController extends Controller
     public function display()
     { $prods = DB::table('products')->get();
 
-        $types = DB::table('products')->distinct('producttype')->pluck('producttype');
-        return view('products', ['prods' => $prods, 'types' =>$types]);
+       $types = DB::table('products')->distinct('producttype')->pluck('producttype');
+
+     // $types = DB::table('products')::pluck('producttype');
+
+        return view('home', ['prods' => $prods, 'types' =>$types]);
 
 
     }

@@ -14,9 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 // navbar links
-Route::get('/', function () {
-    return view('home');
-});
+// Route::get('/', function () {
+//     return view('home');
+// });
 Route::get('/about', function () {
     return view('about');
 });
@@ -31,6 +31,7 @@ Route::get('/support', function () {
 // });
 
 Route::get('products','ProductsController@display');
+Route::get('/','ProductsController@display');
 
 //AUTHENTICATION    AUTHENTICATION    AUTHENTICATION    AUTHENTICATION
 Auth::routes();
