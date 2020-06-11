@@ -4,7 +4,6 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f0dcbdc80776ca79d6311b8f92c5a4b5",
     "content-hash": "f8697a8d6150ab5479a0a4b74a1bd404",
     "packages": [
         {
@@ -1044,9 +1043,7 @@
                     "name": "Adam Engebretson",
                     "email": "adam@laravelcollective.com"
                 }
-                {
-                    "name": "Taylor Otwell",
-                    "email": "taylorotwell@gmail.com"
+
                 }
             ],
             "description": "HTML and Form Builders for the Laravel Framework",
@@ -1054,6 +1051,7 @@
             "time": "2020-05-19T18:02:16+00:00"
         },
         {
+
             "name": "league/commonmark",
             "version": "1.4.3",
             "source": {
