@@ -22,7 +22,7 @@ body{
 .logo:hover{
   background-color: black;
 }
-ul {
+.navback {
     list-style-type: none;
     overflow: hidden;
     position: sticky;
@@ -102,4 +102,9 @@ ul {
 input{
   font-size: 20px;
   margin-left: 20px;
+}
+
+/* DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS */
+.products{
+  
 }

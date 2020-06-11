@@ -7,17 +7,6 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-<<<<<<< HEAD
-   public function display()
-   { $prods = DB::table('products')->get();
-       return view('products', ['prods' => $prods]);
-   }
-
-   public function index()
-    {
-        $products = DB::table('products')->get();
-        return view('home')->with('products', $products); 
-=======
 
     public function display()
     { $prods = DB::table('products')->get();
@@ -43,7 +32,8 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        $products = DB::table('products')->get();
+        return view('home')->with('products', $products); 
     }
 
     /**
@@ -110,6 +100,5 @@ class ProductsController extends Controller
     public function destroy(Products $products)
     {
         //
->>>>>>> b5c795c03f92df914aed5f69aa7e53544a6d96f8
     }
 }
