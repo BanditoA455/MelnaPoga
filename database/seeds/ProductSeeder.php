@@ -17,7 +17,7 @@ class ProductSeeder extends Seeder
         Schema::enableForeignKeyConstraints();
         DB::table('products')->insert([
             'productname' => 'flat golden button',
-            'procucttype' => 'flat',
+            'producttype' => 'flat',
             'productcolor' => 'golden',
             'productdiameter' => '14',
             'productprice' => '1.2',
@@ -25,7 +25,7 @@ class ProductSeeder extends Seeder
 
         DB::table('products')->insert([
             'productname' => 'silver lapel',
-            'procucttype' => 'lapel',
+            'producttype' => 'lapel',
             'productcolor' => 'silver',
             'productdiameter' => '10',
             'productprice' => '0.20',
@@ -33,14 +33,14 @@ class ProductSeeder extends Seeder
 
         DB::table('products')->insert([
             'productname' => 'shellac shank',
-            'procucttype' => 'shank',
+            'producttype' => 'shank',
             'productcolor' => 'pink',
             'productdiameter' => '14',
             'productprice' => '0.54',
             ]);
         DB::table('products')->insert([
             'productname' => 'steel snap',
-            'procucttype' => 'snap',
+            'producttype' => 'snap',
             'productcolor' => 'steel',
             'productdiameter' => '17',
             'productprice' => '0.30',

@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use DB;
 use App\Products;
 use Illuminate\Http\Request;
 
@@ -10,7 +10,11 @@ class ProductsController extends Controller
 
     public function display()
     { $prods = DB::table('products')->get();
-        return view('products', ['prods' => $prods]);
+
+        $types = DB::table('products')->distinct('producttype')->pluck('producttype');
+        return view('products', ['prods' => $prods, 'types' =>$types]);
+
+
     }
     public function filter()
     {
