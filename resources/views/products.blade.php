@@ -15,6 +15,14 @@
     @endforeach
 </table>
 
+        <select class="form-control" name="lastname" id="lastname" data-parsley-required="true">
+          @foreach ($types as $types)
+          {
+            <option value="{{ $types }}">{{ $types }}</option>
+          }
+          @endforeach
+        </select>
+
 
 </body>
 </html>
