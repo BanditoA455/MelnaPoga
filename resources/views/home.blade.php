@@ -44,10 +44,10 @@
                 <div class="float-left"><img class=" product-picture"  src={{asset('images/'.$product->id.'.jpg')}} alt="{{$product->productname}}"></div>
                 <div class=" product-text">
                 <ul>
-                    <li> {{$product->productname}}</li>
-                    <li> {{$product->producttype}}</li>
-                    <li> {{$product->productcolor}}</li>
-                    <li> {{$product->productdiameter}} mm</li>
+                    <li> {{$product->productname}} </li>
+                     {{$product->producttype}} /
+                     {{$product->productcolor}} /
+                    {{$product->productdiameter}} mm
                     <li> {{$product->productprice}} €</li>
                     </ul>
                 </div>
