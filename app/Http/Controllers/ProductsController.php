@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
@@ -12,8 +13,11 @@ class ProductsController extends Controller
     {
         $prods = DB::table('products')->get();
 
-        $types = DB::table('products')->distinct('producttype')->pluck('producttype');
-        return view('products', ['prods' => $prods, 'types' =>$types]);
+       $types = DB::table('products')->distinct('producttype')->pluck('producttype');
+       $colors = DB::table('products')->distinct('productcolor')->pluck('productcolor');
+     // $types = DB::table('products')::pluck('producttype');
+
+        return view('home', ['prods' => $prods, 'types' =>$types, 'colors' =>$colors]);
 
 
     }
@@ -30,8 +34,15 @@ class ProductsController extends Controller
     public function index()
     {
         //$products = DB::table('products')->get();
+        //$products = DB::table('products')->get();
         $products = Products::all();
         return view('home')->with('products', $products);
+      
+        //$user = Auth::user();
+        //return view('home')->with([
+        //    'products' => $products,
+        //    'user' => $user
+        //]); 
     }
 
     /**

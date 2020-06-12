@@ -30,9 +30,9 @@ class OrderedProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Products $product)
     {
-        //
+        dd($product);
     }
 
     /**
@@ -43,7 +43,7 @@ class OrderedProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
