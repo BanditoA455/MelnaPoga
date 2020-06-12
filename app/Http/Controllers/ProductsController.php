@@ -21,10 +21,6 @@ class ProductsController extends Controller
          return view('welcome');
     }
 
-
-
-
-
     /**
      * Display a listing of the resource.
      *
