@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Products extends Model
 {
- 
+
     protected $fillable = [
-        'orderID', 'ProductID', 'amount', 'price',
+         'id', 'productname', 'productprice',
     ];
 
     public function giveData(){

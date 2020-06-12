@@ -24,7 +24,7 @@
         {{Form::label('cheap', 'Cheapest:', ['class' => 'label']) }}
         <br>
         {{Form::number('cheap', '', ['class' => 'input']) }}
-    </div> 
+    </div>
     <div class="label-div">
         {{Form::label('exp', 'Most expensive:', ['class' => 'label']) }}
         <br>
@@ -38,6 +38,7 @@
 
 @section('BodyContent')
 
+
     @foreach ( $products as $product)
         <div class="product">
             <ul>
@@ -50,8 +51,8 @@
                     <li>Products price: {{$product->productprice}} eur</li>
                 </div>
                 <div class="float-right product-form">
-                    <a href="{{route('cart.index', $product)}}" > <input type="button" value="Edit"> </a>
-                    <form action="{{route('cart.index', $product)}}">
+                    <a href="{{route('cart', $product)}}" > <input type="button" value="Edit"> </a>
+                    <form action="{{route('cart', ['id' => $product->id])}}">
                         <label for="amount"> Amount </label>
                         <input type="number" name="amount">
                         <br>
@@ -62,5 +63,5 @@
             </ul>
         </div>
     @endforeach
-    
+
 @endsection

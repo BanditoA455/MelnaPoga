@@ -9,7 +9,8 @@ class ProductsController extends Controller
 {
 
     public function display()
-    { $prods = DB::table('products')->get();
+    {
+        $prods = DB::table('products')->get();
 
         $types = DB::table('products')->distinct('producttype')->pluck('producttype');
         return view('products', ['prods' => $prods, 'types' =>$types]);
@@ -30,7 +31,7 @@ class ProductsController extends Controller
     {
         //$products = DB::table('products')->get();
         $products = Products::all();
-        return view('home')->with('products', $products); 
+        return view('home')->with('products', $products);
     }
 
     /**
