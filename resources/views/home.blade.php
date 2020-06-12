@@ -37,15 +37,28 @@
 @endsection
 
 @section('BodyContent')
-    {{-- @foreach ( $products as $product)
-        
+
+    @foreach ( $products as $product)
+        <div class="product">
             <ul>
-                <li>{{$product->productname}}</li>
-                <li>{{$product->procucttype}}</li>
-                <li>{{$product->productcolor}}</li>
-                <li>{{$product->productdiameter}}</li>
-                <li>{{$product->productprice}}</li>
+                <div class="float-left product-picture"><img src={{asset('images/'.$product->id.'.jpg')}} alt="{{$product->productname}}"></div>
+                <div class="float-left product-text">
+                    <li>Products name: {{$product->productname}}</li>
+                    <li>Products type: {{$product->producttype}}</li>
+                    <li>Products color: {{$product->productcolor}}</li>
+                    <li>Products diameter: {{$product->productdiameter}} mm</li>
+                    <li>Products price: {{$product->productprice}} eur</li>
+                </div>
+                <div class="float-right product-form">
+                    <form action="">
+                        <label for="amount"> Amount </label>
+                        <input type="number" name="amount">
+                        <br>
+                        <input type="submit" value="Add to cart">
+                    </form>
+                </div>
             </ul>
-        
-    @endforeach --}}
+        </div>
+    @endforeach
+    
 @endsection
