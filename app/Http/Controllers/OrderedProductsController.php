@@ -13,15 +13,18 @@ class OrderedProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(Products $product)
+    public function index($productId)
     {
-        // return view('cart')->with([
-        //     'product' => $product
-        // ]);
-         dd($product);
-        // return $product->productname;
-        // dd($request);
-        // return view('cart');
+
+        $products = Products::where('id' , '=' , $productId)->first();
+        return view('cart')->with([
+            'product' => $products
+        ]);
+        dd($products);
+        return $products->productname;
+        dd($request);
+        return view('cart');
+
     }
 
     /**

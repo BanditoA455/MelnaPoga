@@ -62,11 +62,18 @@
 
 @section('BodyContent')
 
-    @guest
+
+
+
+  {{--  @guest 
         <div class="cout">std::cout << "Hello, World!" << endl;</div>
     @else
         <div class="cout">std::cout << "Hello, {{$user->FirstName ?? 'World'}}!" << endl;</div>
-    @endguest
+    @endguest --}}
+
+
+
+
 
     @foreach ( $products as $product)
         <div class="product">
@@ -80,10 +87,11 @@
                     <li>Products price: {{$product->productprice}} eur</li>
                 </div>
                 <div class="float-right product-form">
-                    <a href="{{route('cart.index', $product->id)}}" > <input type="button" value="Edit"> </a>
 
-                    <form action="{{route('cart.store', $product)}}" method="POST">
-                        {{-- {{method_field('PUT')}} --}}
+                    <a href="{{route('cart', $product)}}" > <input type="button" value="Edit"> </a>
+                    <form action="{{route('cart', ['id' => $product->id])}}">
+
+
                         <label for="amount"> Amount </label>
                         <input type="number" name="amount">
                         <br>
@@ -93,5 +101,5 @@
             </ul>
         </div>
     @endforeach
-    
+
 @endsection
