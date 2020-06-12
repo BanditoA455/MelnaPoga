@@ -21,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::resource('/', 'ProductsController');
-Route::resource('/cart', 'OrderedProductsController');
+Route::get('/cart/{id}', 'OrderedProductsController@index')->name('cart');
 
 Route::get('/about', function () {
     return view('about');

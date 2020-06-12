@@ -10,7 +10,8 @@ class ProductsController extends Controller
 {
 
     public function display()
-    { $prods = DB::table('products')->get();
+    {
+        $prods = DB::table('products')->get();
 
        $types = DB::table('products')->distinct('producttype')->pluck('producttype');
        $colors = DB::table('products')->distinct('productcolor')->pluck('productcolor');
@@ -35,11 +36,13 @@ class ProductsController extends Controller
         //$products = DB::table('products')->get();
         //$products = DB::table('products')->get();
         $products = Products::all();
-        $user = Auth::user();
-        return view('home')->with([
-            'products' => $products,
-            'user' => $user
-        ]); 
+        return view('home')->with('products', $products);
+      
+        //$user = Auth::user();
+        //return view('home')->with([
+        //    'products' => $products,
+        //    'user' => $user
+        //]); 
     }
 
     /**
