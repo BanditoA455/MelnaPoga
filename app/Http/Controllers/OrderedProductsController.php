@@ -15,6 +15,7 @@ class OrderedProductsController extends Controller
      */
     public function index($productId)
     {
+
         $products = Products::where('id' , '=' , $productId)->first();
         return view('cart')->with([
             'product' => $products
@@ -23,6 +24,7 @@ class OrderedProductsController extends Controller
         return $products->productname;
         dd($request);
         return view('cart');
+
     }
 
     /**
@@ -30,9 +32,9 @@ class OrderedProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Products $product)
     {
-        //
+        dd($product);
     }
 
     /**
@@ -43,7 +45,7 @@ class OrderedProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**

@@ -1,6 +1,7 @@
 body{
   font-family: Courier, Ariel;
-  background-color: #f1f1f1;
+  background-color: #1d1f21;
+  color: #91a8e3;
 }
 
 /* HEADER    HEADER    HEADER    HEADER    HEADER */
@@ -9,7 +10,7 @@ body{
   color:#333;
   font-size: 50px;
   text-align: center;
-  background-color: rgb(178, 190, 190);
+  background-color: rgb(129, 141, 156);
   padding-bottom: 60px;
   padding-top: 50px;
 }
@@ -105,17 +106,27 @@ input{
   margin-left: 20px;
 }
 
+/* GREETINGS    GREETINGS    GREETINGS    GREETINGS    GREETINGS    GREETINGS */
+.cout{
+  font-family: Courier, Ariel;
+  color:#91a8e3;
+  font-size: 50px;
+  text-align: center;
+  padding-bottom: 60px;
+  padding-top: 50px;
+}
+
 /* DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS */
 .product{
   margin-top: 20px;
   margin-left: 370px;
-  margin-right: 250px;
+  margin-right: 370px;
   /* position: relative; */
   display: flex;
   height: 300px;
   border-style: solid;
   border-width: 2px;
-  border-color: rgb(131, 183, 192);
+  border-color: #91a8e3;
   padding: 25px;
 }
 
