@@ -17,6 +17,13 @@ use Illuminate\Support\Facades\Route;
 // Route::get('/', function () {
 //     return view('home');
 // });
+
+=======
+
+Route::resource('/', 'ProductsController');
+Route::resource('/cart', 'OrderedProductsController');
+
+==========
 Route::get('/about', function () {
     return view('about');
 });

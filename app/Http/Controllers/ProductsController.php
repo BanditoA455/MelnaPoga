@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
@@ -24,10 +25,6 @@ class ProductsController extends Controller
          return view('welcome');
     }
 
-
-
-
-
     /**
      * Display a listing of the resource.
      *
@@ -35,7 +32,14 @@ class ProductsController extends Controller
      */
     public function index()
     {
-        //
+        //$products = DB::table('products')->get();
+        //$products = DB::table('products')->get();
+        $products = Products::all();
+        $user = Auth::user();
+        return view('home')->with([
+            'products' => $products,
+            'user' => $user
+        ]); 
     }
 
     /**
