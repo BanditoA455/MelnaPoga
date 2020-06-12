@@ -18,10 +18,23 @@
 
 
 <div class="label-div">
-        <select class="form-control" name="lastname" id="lastname" data-parsley-required="true">
+{{Form::label('type', 'Type', ['class' => 'label']) }}
+        <br>
+        <select class="form-control" name="type" id="type" data-parsley-required="true">
           @foreach ($types as $types)
           {
             <option value="{{ $types }}">{{ $types }}</option>
+          }
+          @endforeach
+        </select>
+         </div>
+<div class="label-div">
+    {{Form::label('color', 'Color', ['class' => 'label']) }}
+        <br>
+                <select class="form-control" name="color" id="color" data-parsley-required="true">
+          @foreach ($colors as $colors)
+          {
+            <option value="{{ $colors }}">{{ $colors }}</option>
           }
           @endforeach
         </select>
