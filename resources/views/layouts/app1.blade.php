@@ -29,7 +29,6 @@
 
                 @guest
                 
-                
                 @if (Route::has('register'))
                     <li class="float_right"><a href="{{ route('register') }}" class="navbar_item">Register</a></li>
                     <li class="float_right"><a href="{{ route('login') }}" class="navbar_item">Log in</a></li>

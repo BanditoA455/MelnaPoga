@@ -50,7 +50,10 @@
                     <li>Products price: {{$product->productprice}} eur</li>
                 </div>
                 <div class="float-right product-form">
-                    <form action="">
+                    <a href="{{route('cart.index', $product->id)}}" > <input type="button" value="Edit"> </a>
+
+                    <form action="{{route('cart.store', $product)}}" method="POST">
+                        {{-- {{method_field('PUT')}} --}}
                         <label for="amount"> Amount </label>
                         <input type="number" name="amount">
                         <br>

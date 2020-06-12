@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\OrderedProducts;
+use App\Products;
 use Illuminate\Http\Request;
 
 class OrderedProductsController extends Controller
@@ -12,9 +13,15 @@ class OrderedProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Products $product)
     {
-        //
+        // return view('cart')->with([
+        //     'product' => $product
+        // ]);
+         dd($product);
+        // return $product->productname;
+        // dd($request);
+        // return view('cart');
     }
 
     /**
@@ -22,9 +29,9 @@ class OrderedProductsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Products $product)
     {
-        //
+        dd($product);
     }
 
     /**
@@ -35,7 +42,7 @@ class OrderedProductsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
