@@ -38,19 +38,21 @@
 
 @section('BodyContent')
 
-
+<div  class="container">
     @foreach ( $products as $product)
-        <div class="product">
-            <ul>
-                <div class="float-left product-picture"><img src={{asset('images/'.$product->id.'.jpg')}} alt="{{$product->productname}}"></div>
-                <div class="float-left product-text">
-                    <li>Products name: {{$product->productname}}</li>
-                    <li>Products type: {{$product->producttype}}</li>
-                    <li>Products color: {{$product->productcolor}}</li>
-                    <li>Products diameter: {{$product->productdiameter}} mm</li>
-                    <li>Products price: {{$product->productprice}} eur</li>
+        <div class= "product">
+                <div class="float-left"><img class=" product-picture"  src={{asset('images/'.$product->id.'.jpg')}} alt="{{$product->productname}}"></div>
+                <div class=" product-text">
+                <ul>
+                    <li> {{$product->productname}}</li>
+                    <li> {{$product->producttype}}</li>
+                    <li> {{$product->productcolor}}</li>
+                    <li> {{$product->productdiameter}} mm</li>
+                    <li> {{$product->productprice}} €</li>
+                    </ul>
                 </div>
-                <div class="float-right product-form">
+                <br>
+                <div class=" product-form">
                     <a href="{{route('cart', $product)}}" > <input type="button" value="Edit"> </a>
                     <form action="{{route('cart', ['id' => $product->id])}}">
                         <label for="amount"> Amount </label>
@@ -60,8 +62,8 @@
 
                     </form>
                 </div>
-            </ul>
+
         </div>
     @endforeach
-
+</div>
 @endsection
