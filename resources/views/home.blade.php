@@ -38,6 +38,12 @@
 
 @section('BodyContent')
 
+    @guest
+        <div class="cout">std::cout << "Hello, World!" << endl;</div>
+    @else
+        <div class="cout">std::cout << "Hello, {{$user->FirstName ?? 'World'}}!" << endl;</div>
+    @endguest
+
     @foreach ( $products as $product)
         <div class="product">
             <ul>

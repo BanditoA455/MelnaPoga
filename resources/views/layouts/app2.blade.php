@@ -6,6 +6,7 @@
         <link href="{{ asset("css/template.css") }}" rel="stylesheet">
         <link rel="stylesheet" type="text/css" href="{{ asset('/css/reset.css') }}">
         <script type="text/javascript" src="{{ URL::asset('js/javascript.js') }}"></script>
+        @yield('HeadContent')
 
         <title>Laravel</title>
     </head>
@@ -41,6 +42,7 @@
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> @csrf </form>
                     </li>
+                    <li class="float_right"><a href="{{ route('cart.index') }}" class="navbar_item">Cart</a></li>
                 @endguest
             </ul>
         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use DB;
 use App\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProductsController extends Controller
 {
@@ -31,7 +32,11 @@ class ProductsController extends Controller
         //$products = DB::table('products')->get();
         //$products = DB::table('products')->get();
         $products = Products::all();
-        return view('home')->with('products', $products); 
+        $user = Auth::user();
+        return view('home')->with([
+            'products' => $products,
+            'user' => $user
+        ]); 
     }
 
     /**
