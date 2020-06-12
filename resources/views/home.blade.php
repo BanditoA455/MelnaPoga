@@ -15,6 +15,30 @@
         <br>
         {{Form::text('LargeD', '', ['class' => 'input']) }}
     </div>
+
+
+<div class="label-div">
+{{Form::label('type', 'Type', ['class' => 'label']) }}
+        <br>
+        <select class="form-control" name="type" id="type" data-parsley-required="true">
+          @foreach ($types as $types)
+          {
+            <option value="{{ $types }}">{{ $types }}</option>
+          }
+          @endforeach
+        </select>
+         </div>
+<div class="label-div">
+    {{Form::label('color', 'Color', ['class' => 'label']) }}
+        <br>
+                <select class="form-control" name="color" id="color" data-parsley-required="true">
+          @foreach ($colors as $colors)
+          {
+            <option value="{{ $colors }}">{{ $colors }}</option>
+          }
+          @endforeach
+        </select>
+    </div>
     <div class="label-div">
         {{Form::label('type', 'Type', ['class' => 'label']) }}
         <br>
@@ -24,7 +48,7 @@
         {{Form::label('cheap', 'Cheapest:', ['class' => 'label']) }}
         <br>
         {{Form::number('cheap', '', ['class' => 'input']) }}
-    </div> 
+    </div>
     <div class="label-div">
         {{Form::label('exp', 'Most expensive:', ['class' => 'label']) }}
         <br>

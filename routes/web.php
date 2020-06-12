@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 //     return view('home');
 // });
 
+
 Route::resource('/', ('ProductsController'));
+
 
 Route::get('/about', function () {
     return view('about');
@@ -34,6 +36,7 @@ Route::get('/support', function () {
 // });
 
 Route::get('products','ProductsController@display');
+Route::get('/','ProductsController@display');
 
 //AUTHENTICATION    AUTHENTICATION    AUTHENTICATION    AUTHENTICATION
 Auth::routes();
