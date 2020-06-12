@@ -17,7 +17,7 @@
             <h1><strong>Melnā poga</strong></h1>
         </div>
         <div>
-            <ul>
+            <ul class="navback">
                 <li class="float_left"><img id="logo" onclick="sidenav()" class="logo" src="/images/logo.png"></li>
                 <li class="float_left"><a href="{{ url('/') }}" class="navbar_item">Home</a></li>
                 <li class="float_left"><a href="{{ url('/support') }}" class="navbar_item">Support</a></li>
