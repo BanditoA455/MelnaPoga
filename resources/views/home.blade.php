@@ -95,3 +95,34 @@
     @endforeach
 </div>
 @endsection
+{{-- @section('BodyContent')
+
+<div  class="container">
+    @foreach ( $products as $product)
+        <div class= "product">
+                <div class="float-left"><img class=" product-picture"  src={{asset('images/'.$product->id.'.jpg')}} alt="{{$product->productname}}"></div>
+                <div class=" product-text">
+                <ul>
+                    <li> {{$product->productname}} </li>
+                     {{$product->producttype}} /
+                     {{$product->productcolor}} /
+                    {{$product->productdiameter}} mm
+                    <li> {{$product->productprice}} €</li>
+                    </ul>
+                </div>
+                <br>
+                <div class=" product-form">
+                    <a href="{{route('cart', $product)}}" > <input type="button" value="Edit"> </a>
+                    <form action="{{route('cart', ['id' => $product->id])}}">
+                        <label for="amount"> Amount </label>
+                        <input type="number" name="amount">
+                        <br>
+                        <input type="submit" value="Add to cart">
+
+                    </form>
+                </div>
+
+        </div>
+    @endforeach
+</div>
+@endsection --}}
