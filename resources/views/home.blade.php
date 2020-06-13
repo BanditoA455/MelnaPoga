@@ -61,26 +61,29 @@
 @endsection
 
 @section('BodyContent')
-
-
-    @guest
+@guest
         <div class="cout">std::cout << "Hello, World!" << endl;</div>
     @else
         <div class="cout">std::cout << "Hello, {{$user->FirstName ?? 'World'}}!" << endl;</div>
     @endguest
+    
+
+<div  class="container">
 
     @foreach ( $products as $product)
-        <div class="product">
-            <ul>
-                <div class="float-left product-picture"><img src={{asset('images/'.$product->id.'.jpg')}} alt="{{$product->productname}}"></div>
-                <div class="float-left product-text">
-                    <li>Products name: {{$product->productname}}</li>
-                    <li>Products type: {{$product->producttype}}</li>
-                    <li>Products color: {{$product->productcolor}}</li>
-                    <li>Products diameter: {{$product->productdiameter}} mm</li>
-                    <li>Products price: {{$product->productprice}} eur</li>
+        <div class= "product">
+                <div class="float-left"><img class=" product-picture"  src={{asset('images/'.$product->id.'.jpg')}} alt="{{$product->productname}}"></div>
+                <div class=" product-text">
+                <ul>
+                    <li> {{$product->productname}} </li>
+                     {{$product->producttype}} /
+                     {{$product->productcolor}} /
+                    {{$product->productdiameter}} mm
+                    <li> {{$product->productprice}} €</li>
+                    </ul>
                 </div>
-                <div class="float-right product-form">
+                <br>
+                <div class=" product-form">
                     <a href="{{route('cart', $product)}}" > <input type="button" value="Edit"> </a>
                     <form action="{{route('cart', ['id' => $product->id])}}">
 
@@ -90,8 +93,8 @@
                         <input type="submit" value="Add to cart">
                     </form>
                 </div>
-            </ul>
+
         </div>
     @endforeach
-
+</div>
 @endsection
