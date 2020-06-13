@@ -43,7 +43,7 @@
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> @csrf </form>
                     </li>
-                    {{-- <li class="float_right"><a href="{{ route('cart.index') }}" class="navbar_item">Cart</a></li> --}}
+                    <li class="float_right"><a href="{{ route('home') }}" class="navbar_item">Cart</a></li>
                 @endguest
             </ul>
         </div>

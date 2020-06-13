@@ -1,4 +1,4 @@
-@extends('layouts.app1')
+@extends('layouts.app2')
 
 @section('HeadContent')
     <link href="{{ asset('css/view.css') }}" rel="stylesheet">
@@ -9,12 +9,5 @@
 @endsection
 
 @section('BodyContent')
-    <div class="tec">
-        <h1 class="tec">Pārbaudes teksts</h1>
-    </div>
-
-    <div class="lines">
-        <h1 class="abcde"><strong>Melnā poga</strong></h1>
-    </div>
-    <h1>teksts</h1>
+    <div class="cout">You are in the about page</div>
 @endsection

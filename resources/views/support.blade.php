@@ -1,4 +1,4 @@
-@extends('layouts.app1')
+@extends('layouts.app2')
 
 @section('HeadContent')
 @endsection
@@ -7,7 +7,5 @@
 @endsection
 
 @section('BodyContent')
-    <div class="abcde">
-        <h1 class="abcde">Pārbaudes teksts</h1>
-    </div>
+    <div class="cout">You are in the support page</div>
 @endsection

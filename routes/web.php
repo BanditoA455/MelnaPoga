@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 
 
-Route::resource('/', 'ProductsController');
+//Route::resource('/', 'ProductsController');
 Route::get('/cart/{id}', 'OrderedProductsController@index')->name('cart');
 
 Route::get('/about', function () {
@@ -29,19 +29,17 @@ Route::get('/about', function () {
 Route::get('/support', function () {
     return view('support');
 });
-// Route::get('/login', function () {
-//     return view('login');
-// });
-// Route::get('/register', function () {
-//     return view('register');
-// });
+
+//Route::get('reviews','ReviewsController@index')->name('reviews');
+//Route::resource('/reviews', 'ReviewsController');
+Route::get('reviews/{id}', 'ReviewsController@index')->name('reviews');
 
 Route::get('products','ProductsController@display');
-Route::get('/','ProductsController@display');
+Route::get('/','ProductsController@display')->name('home');
 
 //AUTHENTICATION    AUTHENTICATION    AUTHENTICATION    AUTHENTICATION
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
+//Route::get('/home', 'HomeController@index')->name('home');
 
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UserController', ['except' => ['show', 'create', 'store'] ]);

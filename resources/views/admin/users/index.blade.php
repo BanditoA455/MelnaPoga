@@ -1,63 +1,45 @@
 @extends('layouts.app2')
 
 @section('HeadContent')
-    <style>
-        #customers {
-        font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-        }
-        
-        #customers td, #customers th {
-        border: 1px solid #ddd;
-        padding: 8px;
-        }
-        
-        #customers tr:nth-child(even){background-color: #f2f2f2;}
-        
-        #customers tr:hover {background-color: #ddd;}
-        
-        #customers th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #4CAF50;
-        color: white;
-        }
-    </style>
 @endsection
 
 @section('BodyContent')
-    <table id="customers">
-        <tr>
-            <th>#</th>
-            <th>First name</th>
-            <th>Last name</th>
-            <th>email</th>
-            <th>Actions</th>
-        </tr>
-        @foreach ( $users as $user)
-        <tr>
-            <td>{{$user->id}}</td>
-            <td>{{$user->FirstName}}</td>
-            <td>{{$user->LastName}}</td>
-            <td>{{$user->email}}</td>
-            <td>
-            @if ($user->role == 'user')
-            <a href="{{route('admin.users.edit', $user->id)}}" > <input type="button" value="Edit"> </a>
-            <form action="{{ route('admin.users.destroy', $user) }}" method="POST">
-                @csrf
-                {{method_field('DELETE')}}
 
-                <input  type="submit" value="Delete">
-            </form>
-            
-            @endif
-            </td>
-        </tr>
-        @endforeach
+    <div class="cout">Here is the list of users</div>
 
-    </table>
+    <div class="table">
+        <table id="customers">
+            <tr>
+                <th class="first">#</th>
+                <th class="first">First name</th>
+                <th class="first">Last name</th>
+                <th class="first">email</th>
+                <th class="first">Actions</th>
+            </tr>
+            @foreach ( $users as $user)
+            <tr class="row">
+                <td class="others">{{$user->id}}</td>
+                <td class="others">{{$user->FirstName}}</td>
+                <td class="others">{{$user->LastName}}</td>
+                <td class="others">{{$user->email}}</td>
+                <td class="others">
+                @if ($user->role == 'user')
+    
+                <a class="table-buttons" href="{{route('admin.users.edit', $user->id)}}" > <input type="button" value="Edit"> </a>
+                <form action="{{ route('admin.users.destroy', $user) }}" method="POST">
+                    @csrf
+                    {{method_field('DELETE')}}
+    
+                    <input class="table-buttons float-left" type="submit" value="Delete">
+                </form>
+                
+                @endif
+                </td>
+            </tr>
+            @endforeach
+    
+        </table>
+    </div>
 
    
 @endsection
