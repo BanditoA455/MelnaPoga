@@ -15,6 +15,30 @@
         <br>
         {{Form::text('LargeD', '', ['class' => 'input']) }}
     </div>
+
+
+<div class="label-div">
+{{Form::label('type', 'Type', ['class' => 'label']) }}
+        <br>
+        <select class="form-control" name="type" id="type" data-parsley-required="true">
+          @foreach ($types as $types)
+          {
+            <option value="{{ $types }}">{{ $types }}</option>
+          }
+          @endforeach
+        </select>
+         </div>
+<div class="label-div">
+    {{Form::label('color', 'Color', ['class' => 'label']) }}
+        <br>
+                <select class="form-control" name="color" id="color" data-parsley-required="true">
+          @foreach ($colors as $colors)
+          {
+            <option value="{{ $colors }}">{{ $colors }}</option>
+          }
+          @endforeach
+        </select>
+    </div>
     <div class="label-div">
         {{Form::label('type', 'Type', ['class' => 'label']) }}
         <br>
@@ -37,8 +61,15 @@
 @endsection
 
 @section('BodyContent')
+@guest
+        <div class="cout">std::cout << "Hello, World!" << endl;</div>
+    @else
+        <div class="cout">std::cout << "Hello, {{$user->FirstName ?? 'World'}}!" << endl;</div>
+    @endguest
+    
 
 <div  class="container">
+
     @foreach ( $products as $product)
         <div class= "product">
                 <div class="float-left"><img class=" product-picture"  src={{asset('images/'.$product->id.'.jpg')}} alt="{{$product->productname}}"></div>
@@ -55,11 +86,11 @@
                 <div class=" product-form">
                     <a href="{{route('cart', $product)}}" > <input type="button" value="Edit"> </a>
                     <form action="{{route('cart', ['id' => $product->id])}}">
+
                         <label for="amount"> Amount </label>
                         <input type="number" name="amount">
                         <br>
                         <input type="submit" value="Add to cart">
-
                     </form>
                 </div>
 

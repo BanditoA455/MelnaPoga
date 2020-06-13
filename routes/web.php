@@ -18,6 +18,8 @@ use Illuminate\Support\Facades\Route;
 //     return view('home');
 // });
 
+
+
 Route::resource('/', 'ProductsController');
 Route::get('/cart/{id}', 'OrderedProductsController@index')->name('cart');
 
@@ -35,6 +37,7 @@ Route::get('/support', function () {
 // });
 
 Route::get('products','ProductsController@display');
+Route::get('/','ProductsController@display');
 
 //AUTHENTICATION    AUTHENTICATION    AUTHENTICATION    AUTHENTICATION
 Auth::routes();
