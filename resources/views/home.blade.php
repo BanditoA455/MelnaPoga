@@ -17,26 +17,22 @@
     </div>
 
 
-<div class="label-div">
-{{Form::label('type', 'Type', ['class' => 'label']) }}
+    <div class="label-div">
+        {{Form::label('type', 'Type', ['class' => 'label']) }}
         <br>
         <select class="form-control" name="type" id="type" data-parsley-required="true">
-          @foreach ($types as $types)
-          {
-            <option value="{{ $types }}">{{ $types }}</option>
-          }
-          @endforeach
+            @foreach ($types as $types)
+                <option value="{{ $types }}">{{ $types }}</option>
+            @endforeach
         </select>
-         </div>
-<div class="label-div">
-    {{Form::label('color', 'Color', ['class' => 'label']) }}
+    </div>
+    <div class="label-div">
+        {{Form::label('color', 'Color', ['class' => 'label']) }}
         <br>
-                <select class="form-control" name="color" id="color" data-parsley-required="true">
-          @foreach ($colors as $colors)
-          {
-            <option value="{{ $colors }}">{{ $colors }}</option>
-          }
-          @endforeach
+        <select class="form-control" name="color" id="color" data-parsley-required="true">
+            @foreach ($colors as $colors)
+                <option value="{{ $colors }}">{{ $colors }}</option>
+            @endforeach
         </select>
     </div>
     <div class="label-div">
@@ -58,10 +54,11 @@
         {{Form::submit('Add filters') }}
     </div>
     {{!! Form::close() !!}}
+
 @endsection
 
 @section('BodyContent')
-@guest
+    @guest
         <div class="cout">std::cout << "Hello, World!" << endl;</div>
     @else
         <div class="cout">std::cout << "Hello, {{$user->FirstName ?? 'World'}}!" << endl;</div>
@@ -74,17 +71,17 @@
         <div class= "product">
                 <div class="float-left"><img class=" product-picture"  src={{asset('images/'.$product->id.'.jpg')}} alt="{{$product->productname}}"></div>
                 <div class=" product-text">
-                <ul>
-                    <li> {{$product->productname}} </li>
-                     {{$product->producttype}} /
-                     {{$product->productcolor}} /
-                    {{$product->productdiameter}} mm
-                    <li> {{$product->productprice}} €</li>
+                    <ul>
+                        <li>{{$product->productname}}</li>
+                            {{$product->producttype}} /
+                            {{$product->productcolor}} /
+                            {{$product->productdiameter}} mm
+                        <li>{{$product->productprice}} €</li>
                     </ul>
                 </div>
                 <br>
-                <div class=" product-form">
-                    <a href="{{route('cart', $product)}}" > <input type="button" value="Edit"> </a>
+                <div class="product-form">
+                    {{-- <a href="{{route('cart', $product)}}" > <input type="button" value="Edit"> </a> --}}
                     <form action="{{route('cart', ['id' => $product->id])}}">
 
                         <label for="amount"> Amount </label>

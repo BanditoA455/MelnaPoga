@@ -13,11 +13,11 @@ class ProductsController extends Controller
     {
         $prods = DB::table('products')->get();
 
-       $types = DB::table('products')->distinct('producttype')->pluck('producttype');
-       $colors = DB::table('products')->distinct('productcolor')->pluck('productcolor');
+        $types = DB::table('products')->distinct('producttype')->pluck('producttype');
+        $colors = DB::table('products')->distinct('productcolor')->pluck('productcolor');
      // $types = DB::table('products')::pluck('producttype');
 
-        return view('home', ['prods' => $prods, 'types' =>$types, 'colors' =>$colors]);
+        return view('home', ['products' => $prods, 'types' =>$types, 'colors' =>$colors]);
 
 
     }
