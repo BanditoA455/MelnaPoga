@@ -92,7 +92,7 @@
 
                     {{-- <a href="{{route('reviews.index', $product->id)}}" > <input type="button" value="{{$product->id}}"> </a> --}}
                     {{-- <a href="/reviews/"+{{$product->id}}> <input type="button" value="{{$product->id}}"> </a> --}}
-                    <a href={{route('reviews', $product->id)}}> <input type="button" value="{{$product->id}}"> </a>
+                    <a href={{route('reviews', $product->id)}}> <input type="button" value="Reviews"> </a>
                 </div>
 
         </div>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Products;
 use App\Reviews;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -18,9 +19,12 @@ class ReviewsController extends Controller
     {
         $product = Products::where('id', '=', $id)->first();
         $reviews = Reviews::where('id',  '=', $id)->get();
-        $user = Auth::user();
+        return $reviews->userID;
+        $current_user = Auth::user();
+        $user = User::where('id', '=', $reviews->userID)->first();
         return view('reviews')->with([
             'user' => $user,
+            'current_user' => $current_user,
             'product' => $product,
             'productid' => $id,
             'reviews' => $reviews

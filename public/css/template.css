@@ -151,10 +151,23 @@ input{
   width: 100%;
   }
   
-  /* #customers td, #customers th {
+/* REVIEWS    REVIEWS    REVIEWS    REVIEWS    REVIEWS    REVIEWS    REVIEWS    REVIEWS */
+.review-form{
+  margin-left: 45%;
+  margin-top: 40px;
+}
+
+.review-form input{
   border: 1px solid #ddd;
-  padding: 8px;
-  } */
+  border-radius: 15px;
+  padding: 10px;
+  background-color: #1d1f21;
+  color: #91a8e3;
+}
+
+.review-form input:hover{
+  background-color: black;
+}
 
 /* DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS */
 .container {

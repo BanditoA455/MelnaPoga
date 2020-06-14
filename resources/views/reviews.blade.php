@@ -6,7 +6,6 @@
 @section('BodyContent')
 
     <div class="cout">This is the reviews page</div>
-    {{$product->productname}}
 
     <div class="table">
         <table id="customers">
@@ -30,6 +29,12 @@
             @endforeach
     
         </table>
+    </div>
+
+    <div class="review-form">
+        <form action="">
+            <input type="submit" value="Add a review">
+        </form>
     </div>
 
 @endsection
