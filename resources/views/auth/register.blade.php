@@ -1,6 +1,9 @@
-@extends('layouts.app1')
+@extends('layouts.app2')
 
 @section('BodyContent')
+
+    <div class="cout">Fill in the necessary information</div>
+
 <form method="POST" action="{{ route('register') }}">
     @csrf
 
@@ -68,11 +71,11 @@
         <label for="role" class="">Admin code</label>
         <div class="">
             <input id="role" type="text" class="form-control @error('role') is-invalid @enderror" name="role" value="{{ old('role') }}" autocomplete="role" autofocus>
-            {{-- @error('role')
+            @error('role')
                 <span class="invalid-feedback" role="alert">
                     <strong>{{ $message }}</strong>
                 </span>
-            @enderror --}}
+            @enderror
         </div>
     </div>
 
