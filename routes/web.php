@@ -34,8 +34,8 @@ Route::get('/support', function () {
 //Route::resource('reviews', 'ReviewsController', ['except' => ['index', 'create']]);
 //Route::resource('reviews', 'ReviewsController');
 Route::get('reviews/{id}', 'ReviewsController@index')->name('reviews.index');
-Route::get('reviews/{id}/create', 'ReviewsController@create')->name('reviews.create');
-Route::post('reviews/{id}/create', 'ReviewsController@store')->name('reviews.store');
+Route::get('reviews/{id}/create', 'ReviewsController@create')->name('reviews.create')->middleware('auth');
+Route::post('reviews/{id}/create', 'ReviewsController@store')->name('reviews.store')->middleware('auth');
 // Route::get('reviews/{id}', 'ReviewsController@index')->name('reviews.index');
 // Route::get('reviews/{id}/create', 'ReviewsController@create')->name('reviews.create');
 //Route::resource('reviews', 'ReviewsController');
