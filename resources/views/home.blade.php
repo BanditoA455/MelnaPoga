@@ -6,12 +6,12 @@
 @section('SideNavContent')
     {{!! Form::open(['action' => 'ProductsController@filter', 'method' => 'get']) !!}}
     <div class="label-div">
-        {{Form::label('SmallD', 'Smallest diameter', ['class' => 'label']) }}
+        {{Form::label('SmallD', 'Diameter - from:', ['class' => 'label']) }}
         <br>
         {{Form::number('SmallD', '', ['class' => 'input','step' => '1']) }}
     </div>
     <div class="label-div">
-        {{Form::label('LargeD', 'Largest diameter', ['class' => 'yolo']) }}
+        {{Form::label('LargeD', 'to:', ['class' => 'yolo']) }}
         <br>
         {{Form::number('LargeD', '', ['class' => 'input','step' => '1']) }}
     </div>
@@ -20,37 +20,28 @@
     <div class="label-div">
         {{Form::label('type', 'Type', ['class' => 'label']) }}
 
-        {{-- <select class="form-control" name="type" id="type" data-parsley-required="true">
-            @foreach ($types as $types)
-                <option value="{{ $types }}">{{ $types }}</option>
-            @endforeach
-        </select> --}}
+
 {!! Form::select('type', $types,  null, ['class' => 'input']) !!}
 
     </div>
     <div class="label-div">
         {{Form::label('color', 'Color', ['class' => 'label']) }}
-        <br>
-        {{-- <select class="form-control" name="color" id="color" data-parsley-required="true">
-            @foreach ($colors as $colors)
-                <option value="{{ $colors }}">{{ $colors }}</option>
-            @endforeach
-        </select> --}}
+
 {!! Form::select('color', $colors, null, ['class' => 'input']) !!}
 
     </div>
     <div class="label-div">
-        {{Form::label('cheap', 'Cheapest:', ['class' => 'label']) }}
+        {{Form::label('cheap', 'Price - from:', ['class' => 'label']) }}
         <br>
         {{Form::number('cheap', '', ['class' => 'input','step' => '0.01']) }}
     </div>
     <div class="label-div">
-        {{Form::label('exp', 'Most expensive:', ['class' => 'label']) }}
+        {{Form::label('exp', 'to:', ['class' => 'label']) }}
         <br>
         {{Form::number('exp', '', ['class' => 'input' ,'step' => '0.01']) }}
     </div>
-    <div class="filter-button">
-        {{Form::submit('Add filters') }}
+    <div class="filter-button input">
+        {{Form::submit('Find', ['class' => 'addfilter']) }}
     </div>
     {{!! Form::close() !!}}
 
@@ -70,28 +61,31 @@
         <div class= "product">
                 <div class="float-left"><img class=" product-picture"  src={{asset('images/'.$product->id.'.jpg')}} alt="{{$product->productname}}"></div>
                 <div class=" product-text">
-                    <ul>
-                        <li>{{$product->productname}}</li>
-                            {{$product->producttype}} /
+                    <div class="middletext">
+                        <div class="clear">{{$product->productname}}</div>
+                        <br>
+                           <div class="clear"> {{$product->producttype}} /
                             {{$product->productcolor}} /
-                            {{$product->productdiameter}} mm
-                        <li>{{$product->productprice}} €</li>
-                    </ul>
+                            {{$product->productdiameter}} mm</div>
+                        <br><div>
+                        <div >{{$product->productprice}} €</div> </div>
+                    </div>
                 </div>
                 <br>
                 <div class="product-form">
 
                     <form action="{{route('cart', ['id' => $product->id])}}">
 
-                        <label for="amount"> Amount </label>
-                        <input type="number" name="amount">
-                        <br>
-                        <input type="submit" value="Add to cart">
+                        <label class="amount" for="amount">Amount: </label>
+                        <input class="input-product inline" type="number" name="amount" input value="0">
+                        <div class= "float_right" >
+                        <input class= "add inline" type="submit" value="Add to cart">
+                        </div>
                     </form>
 
                     {{-- <a href="{{route('reviews.index', $product->id)}}" > <input type="button" value="{{$product->id}}"> </a> --}}
                     {{-- <a href="/reviews/"+{{$product->id}}> <input type="button" value="{{$product->id}}"> </a> --}}
-                    <a href={{route('reviews.index', $product->id)}}> <input type="button" value="Reviews"> </a>
+                    <a href={{route('reviews.index', $product->id)}}> <input class="review" type="button" value="Reviews"> </a>
                     {{-- <a href="{{route('reviews.index', ['id' => $product->id])}}"> <input type="button" value="Reviews"> </a> --}}
                 </div>
 
