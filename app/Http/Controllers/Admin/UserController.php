@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+use App\Address;
 use Gate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,8 +21,12 @@ class UserController extends Controller
      */
     public function index()
     {
+        $addresses = Address::all();
         $users = User::all();//gets all of the users and puts them in a variable
-        return view('admin.users.index')->with('users', $users); //returns a view with a variable users, which will be variable in the view
+        return view('admin.users.index')->with([
+            'users'=> $users,
+            'addresses' => $addresses
+        ]); 
     }
 
     //    THIS ISN'T NEEDED, BECAUSE USERS CAN REGISTER ON THEIR OWN
@@ -69,8 +74,10 @@ class UserController extends Controller
             return redirect(route('admin.users.index'));
         }
 
+        $address = Address::where('userID', '=', $user->id)->first();
         return view('admin.users.edit')->with([
-            'user' => $user
+            'user' => $user,
+            'address' => $address
         ]);
     }
 
@@ -81,18 +88,25 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user) 
     {
         $user->FirstName = $request->FirstName;
         $user->LastName = $request->LastName;
         $user->email = $request->email;
 
+        $address = Address::where('userID', '=', $user->id)->first();
+
+        $address->Country = $request->country;
+        $address->City = $request->city;
+        $address->Street = $request->street;
+        $address->number = $request->number;
+        $address->save();
+        
         if ($user->save()){
             $request->session()->flash('success', $user->FirstName. ' has been updated');
         } else {
             $request->session()->flash('error', 'Error updating user');
         }
-
 
         return redirect()->route('admin.users.index');
     }
