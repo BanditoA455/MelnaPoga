@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\User;
+use App\Address;
 use Gate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -20,8 +21,12 @@ class UserController extends Controller
      */
     public function index()
     {
+        $addresses = Address::all();
         $users = User::all();//gets all of the users and puts them in a variable
-        return view('admin.users.index')->with('users', $users); //returns a view with a variable users, which will be variable in the view
+        return view('admin.users.index')->with([
+            'users'=> $users,
+            'addresses' => $addresses
+        ]); 
     }
 
     //    THIS ISN'T NEEDED, BECAUSE USERS CAN REGISTER ON THEIR OWN
