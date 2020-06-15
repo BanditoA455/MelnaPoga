@@ -24,7 +24,7 @@
                         <td class="others">{{$user->FirstName}} {{$user->LastName}}</td>
                     @endif
                 @endforeach
-                {{-- <td class="others">{{$user->FirstName}} {{$user->LastName}}</td> --}}
+
                 <td class="others">{{$review->review}}</td>
                 <td class="others">{{$review->rating}}</td>
                 <td class="others">
@@ -38,10 +38,16 @@
         </table>
     </div>
 
-    <div class="review-form">
-        <form action="{{route('reviews.create', $product->id)}}">
-            <input type="submit" value="Add a review">
-        </form>
-    </div>
+    @guest
+    <div class="cannot">You need to log in to leave a review</div>
+    @else
+        <div class="review-form">
+            <form action="{{route('reviews.create', $product->id)}}">
+                <input type="submit" value="Add a review">
+            </form>
+        </div>
+    @endguest
+        
+    
 
 @endsection

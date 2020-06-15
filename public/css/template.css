@@ -169,6 +169,13 @@ input{
   background-color: black;
 }
 
+.cannot{
+  color: rgb(173, 68, 68);
+  font-size: 25px;
+  margin-top: 30px;
+  margin-left: 40%;
+}
+
 /* DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS */
 .container {
 display: flex;
