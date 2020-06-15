@@ -26,10 +26,9 @@
                 <td class="others">{{$users[$i]->LastName}}</td>
                 <td class="others">{{$users[$i]->email}}</td>
                 <td class="others">{{$addresses[$i]->Country}} | {{$addresses[$i]->City}} | {{$addresses[$i]->Street}} | {{$addresses[$i]->number}}</td>
-                {{-- {{$addresses[$i]->Country}} {{$addresses[$i]->City}} {{$addresses[$i]->Street}} {{$addresses[$i]->number}} --}}
                 <td class="others">
                     @if ($users[$i]->role == 'user')
-                        <a class="table-buttons" href="{{route('admin.users.edit', $users[$i]->id)}}" > <input type="button" value="Edit"> </a>
+                        <a class="table-buttons" href="{{route('admin.users.edit', $users[$i]->id, $addresses[$i]->id)}}" > <input type="button" value="Edit"> </a>
                     @endif
                 </td>
                 <td class="others">

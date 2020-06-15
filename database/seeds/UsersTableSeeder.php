@@ -73,7 +73,7 @@ class UsersTableSeeder extends Seeder
             'LastName' => 'Kjelberg',
             'email' => 'best@everything.com',
             'role' => 'admin',
-            'password' => Hash::make('password')
+            'password' => Hash::make('pewdiepie')
         ]);
         //8
         $admin = User::create([
