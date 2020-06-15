@@ -18,12 +18,11 @@ class ReviewsController extends Controller
     public function index($id)
     {
         $product = Products::where('id', '=', $id)->first();
-        $reviews = Reviews::where('id',  '=', $id)->get();
-        return $reviews->userID;
+        $reviews = Reviews::where('productID',  '=', $id)->get();
         $current_user = Auth::user();
-        $user = User::where('id', '=', $reviews->userID)->first();
+        $users = User::all();
         return view('reviews')->with([
-            'user' => $user,
+            'users' => $users,
             'current_user' => $current_user,
             'product' => $product,
             'productid' => $id,
@@ -36,9 +35,14 @@ class ReviewsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create($id)
     {
-        //
+        $product = Products::where('id', '=', $id)->first();
+        $user = Auth::user();
+        return view('new_review')->with([
+            'user' => $user,
+            'product' => $product
+        ]);
     }
 
     /**
@@ -47,9 +51,16 @@ class ReviewsController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $user = Auth::user();
+        $review = new Reviews;
+        $review->userID = $user->id;
+        $review->productID = $id;
+        $review->review = $request->text;
+        $review->rating = $request->rating;
+        $review->save();
+        return redirect()->route('reviews.index', $id);
     }
 
     /**
