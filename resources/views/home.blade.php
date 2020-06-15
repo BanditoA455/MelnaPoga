@@ -58,10 +58,11 @@
 
 @section('BodyContent')
     @guest
-        <div class="cout">std::cout << "Hello, World!" << endl;</div>
-    @else
-        <div class="cout">std::cout << "Hello, {{$user->FirstName ?? 'World'}}!" << endl;</div>
+        <div class="cout">std::cout << "{{__('text.hello')}}, {{__('text.world')}}!" << endl;</div>
+    @else    
+        <div class="cout">std::cout << "{{__('text.hello')}}, {{$user->FirstName}}!" << endl;</div>
     @endguest
+    
 
 
 <div  class="container">
@@ -83,19 +84,20 @@
 
                     <form action="{{route('cart', ['id' => $product->id])}}">
 
-                        <label for="amount"> Amount </label>
+                        <label for="amount"> {{__('text.amount')}} </label>
                         <input type="number" name="amount">
                         <br>
-                        <input type="submit" value="Add to cart">
+                        <input type="submit" value="{{__('text.addToCart')}}">
                     </form>
 
                     {{-- <a href="{{route('reviews.index', $product->id)}}" > <input type="button" value="{{$product->id}}"> </a> --}}
                     {{-- <a href="/reviews/"+{{$product->id}}> <input type="button" value="{{$product->id}}"> </a> --}}
-                    <a href={{route('reviews.index', $product->id)}}> <input type="button" value="Reviews"> </a>
+                    <a href={{route('reviews.index', $product->id)}}> <input type="button" value="{{__('text.reviews')}}"> </a>
                     {{-- <a href="{{route('reviews.index', ['id' => $product->id])}}"> <input type="button" value="Reviews"> </a> --}}
                 </div>
 
         </div>
     @endforeach
 </div>
+
 @endsection
