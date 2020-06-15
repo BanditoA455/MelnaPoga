@@ -25,7 +25,7 @@
                 <td class="others">{{$users[$i]->FirstName}}</td>
                 <td class="others">{{$users[$i]->LastName}}</td>
                 <td class="others">{{$users[$i]->email}}</td>
-                <td class="others"> </td>
+                <td class="others">{{$addresses[$i]->Country}} | {{$addresses[$i]->City}} | {{$addresses[$i]->Street}} | {{$addresses[$i]->number}}</td>
                 {{-- {{$addresses[$i]->Country}} {{$addresses[$i]->City}} {{$addresses[$i]->Street}} {{$addresses[$i]->number}} --}}
                 <td class="others">
                     @if ($users[$i]->role == 'user')
