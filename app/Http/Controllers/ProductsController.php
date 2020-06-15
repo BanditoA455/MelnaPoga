@@ -11,25 +11,91 @@ class ProductsController extends Controller
 
     public function display()
     {
-        $prods = DB::table('products')->get();
+        // $prods = Products::all();
+
+        $prods = FilterCollection::applyFilters();
         $user = Auth::user();
         $types = DB::table('products')->distinct('producttype')->pluck('producttype');
+        $types->prepend('all');
         $colors = DB::table('products')->distinct('productcolor')->pluck('productcolor');
+        $colors->prepend('all');
+        $_colors =[];
+        foreach($colors as $color) {
+            $_colors[$color] = $color;
+        }
+        $colors = $_colors;
      // $types = DB::table('products')::pluck('producttype');
 
         return view('home', [
-            'products' => $prods, 
-            'types' =>$types, 
+            'products' => $prods,
+            'types' =>$types,
             'colors' =>$colors,
             'user' => $user
         ]);
 
 
     }
-    public function filter()
+    public function filter(Request $request)
     {
-         return view('welcome');
+        $filters = FilterCollection::getFromRequest($request);
+        $prods = FilterCollection::applyFilters($filters);
+        // $smalld = $request->input('SmallD');
+
+        //  $LargeD = $request->input('LargeD');
+        //  $type =  $request->input('type');
+        //  $color =  $request->input('color');
+       //  $allbuttons = DB::table('products')->get();
+
+        //  $filteredbuttons = QueryBuilder::for(Products::class)
+        //  $filteredbuttons = Products::where('color', $color);
+        //  return view('home', [
+        //     'products' => $filteredbuttons,
+        //     'types' =>$types,
+        //     'colors' =>$colors,
+        //     'user' => $user
+
+        $types = DB::table('products')->distinct('producttype')->pluck('producttype');
+        $types->prepend('all');
+        $colors = DB::table('products')->distinct('productcolor')->pluck('productcolor');
+        $colors->prepend('all');
+        $_colors =[];
+        foreach($colors as $color) {
+            $_colors[$color] = $color;
+        }
+        $colors = $_colors;
+        $_types =[];
+        foreach($types as $type) {
+            $_types[$type] = $type;
+        }
+        $types = $_types;
+
+        // $prods = Products::where('productcolor', $color)->get();
+        $user = Auth::user();
+
+     // $types = DB::table('products')::pluck('producttype');
+
+        return view('home', [
+
+            'products' => $prods,
+            'types' =>$types,
+            'colors' =>$colors,
+            'user' => $user
+        ]);
+
+
+
+
+
+
     }
+
+
+
+
+
+
+
+
 
     /**
      * Display a listing of the resource.
@@ -42,12 +108,12 @@ class ProductsController extends Controller
         //$products = DB::table('products')->get();
         $products = Products::all();
         return view('home')->with('products', $products);
-      
+
         //$user = Auth::user();
         //return view('home')->with([
         //    'products' => $products,
         //    'user' => $user
-        //]); 
+        //]);
     }
 
     /**

@@ -4,51 +4,50 @@
 @endsection
 
 @section('SideNavContent')
-    {{!! Form::open(['action' => 'ProductsController@display', 'method' => 'POST']) !!}}
+    {{!! Form::open(['action' => 'ProductsController@filter', 'method' => 'get']) !!}}
     <div class="label-div">
         {{Form::label('SmallD', 'Smallest diameter', ['class' => 'label']) }}
         <br>
-        {{Form::text('SmallD', '', ['class' => 'input']) }}
+        {{Form::number('SmallD', '', ['class' => 'input','step' => '1']) }}
     </div>
     <div class="label-div">
-        {{Form::label('LargeD', 'Largest diameter', ['class' => 'label']) }}
+        {{Form::label('LargeD', 'Largest diameter', ['class' => 'yolo']) }}
         <br>
-        {{Form::text('LargeD', '', ['class' => 'input']) }}
+        {{Form::number('LargeD', '', ['class' => 'input','step' => '1']) }}
     </div>
 
 
     <div class="label-div">
         {{Form::label('type', 'Type', ['class' => 'label']) }}
-        <br>
-        <select class="form-control" name="type" id="type" data-parsley-required="true">
+
+        {{-- <select class="form-control" name="type" id="type" data-parsley-required="true">
             @foreach ($types as $types)
                 <option value="{{ $types }}">{{ $types }}</option>
             @endforeach
-        </select>
+        </select> --}}
+{!! Form::select('type', $types,  null, ['class' => 'input']) !!}
+
     </div>
     <div class="label-div">
         {{Form::label('color', 'Color', ['class' => 'label']) }}
         <br>
-        <select class="form-control" name="color" id="color" data-parsley-required="true">
+        {{-- <select class="form-control" name="color" id="color" data-parsley-required="true">
             @foreach ($colors as $colors)
                 <option value="{{ $colors }}">{{ $colors }}</option>
             @endforeach
-        </select>
-    </div>
-    <div class="label-div">
-        {{Form::label('type', 'Type', ['class' => 'label']) }}
-        <br>
-        {{Form::select('type', ['class' => 'input']) }}
+        </select> --}}
+{!! Form::select('color', $colors, null, ['class' => 'input']) !!}
+
     </div>
     <div class="label-div">
         {{Form::label('cheap', 'Cheapest:', ['class' => 'label']) }}
         <br>
-        {{Form::number('cheap', '', ['class' => 'input']) }}
+        {{Form::number('cheap', '', ['class' => 'input','step' => '0.01']) }}
     </div>
     <div class="label-div">
         {{Form::label('exp', 'Most expensive:', ['class' => 'label']) }}
         <br>
-        {{Form::number('exp', '', ['class' => 'input']) }}
+        {{Form::number('exp', '', ['class' => 'input' ,'step' => '0.01']) }}
     </div>
     <div class="filter-button">
         {{Form::submit('Add filters') }}
@@ -63,7 +62,7 @@
     @else
         <div class="cout">std::cout << "Hello, {{$user->FirstName ?? 'World'}}!" << endl;</div>
     @endguest
-    
+
 
 <div  class="container">
 
@@ -81,7 +80,7 @@
                 </div>
                 <br>
                 <div class="product-form">
-                    
+
                     <form action="{{route('cart', ['id' => $product->id])}}">
 
                         <label for="amount"> Amount </label>

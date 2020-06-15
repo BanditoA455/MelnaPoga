@@ -34,7 +34,7 @@ Route::get('/support', function () {
 //Route::resource('/reviews', 'ReviewsController');
 Route::get('reviews/{id}', 'ReviewsController@index')->name('reviews');
 
-Route::get('products','ProductsController@display');
+Route::get('products','ProductsController@filter');
 Route::get('/','ProductsController@display')->name('home');
 
 //AUTHENTICATION    AUTHENTICATION    AUTHENTICATION    AUTHENTICATION
