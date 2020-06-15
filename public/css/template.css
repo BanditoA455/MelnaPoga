@@ -1,7 +1,6 @@
 body{
   font-family: Courier, Ariel;
-  background-color: #1d1f21;
-  color: #91a8e3;
+  background-color: white;
 }
 
 /* HEADER    HEADER    HEADER    HEADER    HEADER */
@@ -17,7 +16,25 @@ body{
 
 /* NAVBAR    NAVBAR    NAVBAR    NAVBAR    NAVBAR */
 .logo{
+    margin-top:60px;
   width: 60px;
+  z-index:2000;
+
+  position: fixed;
+  position: -webkit-sticky; /* Safari */
+  /* position: sticky; */
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 .logo:hover{
@@ -55,35 +72,42 @@ body{
 
   /*SIDE NAVIGATION    SIDE NAVIGATION    SIDE NAVIGATION    SIDE NAVIGATION*/
 .sidenav{
+
+    z-index:1000;
   height: 100%;
   width: 0;
   position: absolute;
   top: 223px;
   bottom: 0px;
   left: 0px;
-  background-color: #111;
+  background-color: white;
   overflow-x: hidden;
   transition: 0.5s;
-  padding-top: 80px;
+  margin-top: 80px;
   opacity: 0.8;
+  position: fixed;
+  position: -webkit-sticky; /* Safari */
+  /* position: sticky; */
+
+
 }
 
 .sidenav .closebtn {
   position: absolute;
   top: 0;
   right: 25px;
-  font-size: 60px;
+  font-size: 35px;
   margin-left: 50px;
 }
 
 .sidenav .closebtn:hover{
-  background-color: #111;
-  font-size: 70px;
+  background-color: white;
+  font-size: 50px;
 }
 
 .sidenav a{
  font-family: Courier, Ariel;
- padding: 8px 8px 8px 32px;
+ padding: 4px 4px 4px 32px;
  text-decoration: none;
  font-size: 25px;
  color: #F3B446;
@@ -101,19 +125,20 @@ body{
   color: #F3B446;
   font-size:20px;
 }
-input{
-  font-size: 20px;
-  margin-left: 20px;
+.addfilter {
+    margin-left:20px;
 }
+
 
 /* GREETINGS    GREETINGS    GREETINGS    GREETINGS    GREETINGS    GREETINGS */
 .cout{
   font-family: Courier, Ariel;
-  color:#91a8e3;
+
   font-size: 50px;
   text-align: center;
   padding-bottom: 60px;
   padding-top: 50px;
+  background:white;
 }
 
 /* DISPLAY USERS    DISPLAY USERS    DISPLAY USERS    DISPLAY USERS    DISPLAY USERS */
@@ -143,14 +168,14 @@ input{
 }
 
 .row:hover{
-  background-color: black;
+  background-color: white;
 }
 #customers {
   font-family: Courier, Ariel;
   border-collapse: collapse;
   width: 100%;
   }
-  
+
 /* REVIEWS    REVIEWS    REVIEWS    REVIEWS    REVIEWS    REVIEWS    REVIEWS    REVIEWS */
 .review-form{
   margin-left: 45%;
@@ -162,11 +187,11 @@ input{
   border-radius: 15px;
   padding: 10px;
   background-color: #1d1f21;
-  color: #91a8e3;
+
 }
 
 .review-form input:hover{
-  background-color: black;
+  background-color: rgb(255, 255, 255);
 }
 
 .cannot{
@@ -178,35 +203,110 @@ input{
 
 /* DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS    DISPLAY PRODUCTS */
 .container {
+    position:absolute;
+    margin-left:100px;
 display: flex;
 flex-wrap: wrap;
-margin-left: 370px;
+justify-content: center ;
+/* margin-left: 370px; */
+background:white;
 }
+
+.amount{
+        width: 40px;
+    height:20px;
+    padding:0px;
+    margin:0px;
+    border:none;
+    padding-bottom:4px;
+
+}
+.clear {
+    text-align: center;
+    width:100%;
+
+}
+.middletext {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.input-product {
+    width: 40px;
+    height:20px;
+    padding:0px;
+    margin:0px;
+    border:none;
+  }
+  .add {
+    font-size:14px;
+    height:20px;
+    padding:0px;
+    margin:0px;
+    background:none;
+    border:none;
+    transition-duration: 0.4s;
+  }
+
+  .add:hover {
+    background-color: #4CAF50; /* Green */
+    color: white;
+  }
+
+
+
+
+
+
+.review {
+    margin-top:6px;
+    width:220px;
+font-size:14px;
+height:20px;
+padding:0px;
+margin:0px;
+background:none;
+border:none;
+transition-duration: 0.4s;
+}
+
+.review:hover {
+background-color: #4CAF50; /* Green */
+color: white;
+
+}
+
+
 .product{
   margin:2.5px;
-  border: 1px solid #91a8e3;
   padding: 25px;
 }
-
+.inline {
+    display: inline-block;
+}
 .product-picture{
 
-  border:1px solid blue;
   padding: 10px;
   width: 200px;
   height:200px;
 }
 
 .product-text{
-
-  border:1px solid red;
+padding:10px;
+padding-top: 0px;
+padding-bottom: 0px;
 
   width: 220px;
-}
 
+}
 .product-form{
+    padding:10px;
+    padding-top: 0px;
   display: inline-block;
-  border:1px solid green;
-  height: 200px;
+  height:20px;
   width: 220px;
 
 }

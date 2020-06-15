@@ -15,6 +15,13 @@ class FilterCollection
                     'escape' => 'all',
                 ],
 
+                'type' =>
+                [
+                    'operator'=> '=',
+                    'column' => 'producttype',
+                    'escape' => 'all',
+                ],
+
             'SmallD' =>
                 [
                     'operator'=> '>=',

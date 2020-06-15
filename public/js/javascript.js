@@ -1,5 +1,5 @@
 function sidenav() {
-    document.getElementById("sidenav").style.width = '350px';
+    document.getElementById("sidenav").style.width = '250px';
 }
 
 function sidenav_close(){
