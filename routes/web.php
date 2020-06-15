@@ -31,8 +31,20 @@ Route::get('/support', function () {
 });
 
 //Route::get('reviews','ReviewsController@index')->name('reviews');
-//Route::resource('/reviews', 'ReviewsController');
-Route::get('reviews/{id}', 'ReviewsController@index')->name('reviews');
+//Route::resource('reviews', 'ReviewsController', ['except' => ['index', 'create']]);
+//Route::resource('reviews', 'ReviewsController');
+Route::get('reviews/{id}', 'ReviewsController@index')->name('reviews.index');
+Route::get('reviews/{id}/create', 'ReviewsController@create')->name('reviews.create');
+Route::post('reviews/{id}/create', 'ReviewsController@store')->name('reviews.store');
+// Route::get('reviews/{id}', 'ReviewsController@index')->name('reviews.index');
+// Route::get('reviews/{id}/create', 'ReviewsController@create')->name('reviews.create');
+//Route::resource('reviews', 'ReviewsController');
+
+
+//Route::resource('reviews', 'ReviewsController', ['except' => ['index', 'create']]);
+
+//Route::get('reviews/{id}', 'ReviewsController@index')->name('reviews.index');
+//Route::get('reviews/{id}/create', 'ReviewsController@create')->name('reviews.create');
 
 Route::get('products','ProductsController@filter');
 Route::get('/','ProductsController@display')->name('home');
