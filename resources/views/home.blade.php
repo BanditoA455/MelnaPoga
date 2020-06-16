@@ -1,4 +1,4 @@
-@extends('layouts.app1')
+@extends('layouts.app3')
 
 @section('HeadContent')
 @endsection
@@ -50,10 +50,10 @@
 @section('BodyContent')
     @guest
         <div class="cout">std::cout << "{{ __('text.hello') }}, {{__('text.world')}}!" << endl;</div>
-    @else    
+    @else
         <div class="cout">std::cout << "{{__('text.hello')}}, {{$user->FirstName}}!" << endl;</div>
     @endguest
-    
+
 
 
 <div  class="container">
