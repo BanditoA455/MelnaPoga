@@ -47,7 +47,6 @@ class OrderedProductsController extends Controller
      */
     public function store(Request $request)
     {
-
         $current_user = Auth::user();
         $cartproducts = Cart::where('userID', '=', $current_user->id)->get();
         $order = new Order;
@@ -58,6 +57,7 @@ class OrderedProductsController extends Controller
         $orderID = $order->id;
         // dd($cartproducts, $current_user);
         //dd($orderID);
+        $supertotalprice = 0;
         foreach($cartproducts as $cartproduct){
             $orderedproduct= new OrderedProducts;
             $orderedproduct->orderID=$orderID;
@@ -70,11 +70,13 @@ class OrderedProductsController extends Controller
             $totalPrice  =  $productprice*($cartproduct->amount);
             $orderedproduct->price = $totalPrice;
             $orderedproduct->save();
-
+            $supertotalprice = $supertotalprice +$totalPrice;
             }
+            $order->ordertotalprice = $supertotalprice;
+            $order->save();
 
-            $collection = Cart::where('userID',$current_user->id)->get(['id']);
-            Cart::destroy($collection->toArray());
+        $collection = Cart::where('userID',$current_user->id)->get(['id']);
+        Cart::destroy($collection->toArray());
           //  $cartproducts->whereIn('userID', $current_user->id)->delete();
       //  $cartproducts->save();
             return redirect()->route('home');
