@@ -18,22 +18,22 @@
         </div>
         <div>
             <ul class="navback">
-                <li class="float_left"><img id="logo" onclick="sidenav()" class="logo" src="/images/logo.png"></li>
+                {{-- <li class="float_left"><img id="logo" onclick="sidenav()" class="logo" src="/images/logo.png"></li> --}}
                 <li class="float_left"><a href="{{ url('/') }}" class="navbar_item">{{__('text.home')}}</a></li>
                 <li class="float_left"><a href="{{ url('/support') }}" class="navbar_item">{{__('text.support')}}</a></li>
                 <li class="float_left"><a href="{{ url('/about') }}" class="navbar_item">{{__('text.about')}}</a></li>
-                
+
                 @can('manage-users')
                     <li class="float_left"><a href="{{ route('admin.users.index') }}" class="navbar_item">{{__('text.users')}}</a></li>
                 @endcan
 
                 @guest
-                
+
                     @if (Route::has('register'))
                         <li class="float_right"><a href="{{ route('register') }}" class="navbar_item">{{__('text.register')}}</a></li>
                         <li class="float_right"><a href="{{ route('login') }}" class="navbar_item">{{__('text.login')}}</a></li>
                     @endif
-                
+
                 @else
                     <li class="float_right">
                         <a class="navbar_item" href="{{ route('logout') }}"
@@ -46,13 +46,13 @@
                     <li class="float_right"><a href="{{ route('home') }}" class="navbar_item">{{__('text.cart')}}</a></li>
                 @endguest
                 <li class="float_right"><a class="navbar_item" href="/lang/lv">LV</a></li>
-                <li class="float_right"><a class="navbar_item" href="/lang/en">EN</a></li> 
+                <li class="float_right"><a class="navbar_item" href="/lang/en">EN</a></li>
             </ul>
         </div>
 
         <div id="sidenav" class="sidenav">
-            <a href="javascript:void(0)" class="closebtn" onclick="sidenav_close()">&times;</a> 
-            @yield('SideNavContent') 
+            <a href="javascript:void(0)" class="closebtn" onclick="sidenav_close()">&times;</a>
+            @yield('SideNavContent')
         </div>
 
         @include('alerts.alerts')
