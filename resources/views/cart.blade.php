@@ -9,7 +9,7 @@
     <div class="table">
         <table id="customers">
             <tr>
-                <th class="first">#</th>  
+                <th class="first">#</th>
                 <th class="first">Product name</th>
                 <th class="first">Amount</th>
                 <th class="first">Actions</th>
@@ -20,22 +20,31 @@
                     <td class="others">{{$products[$i]->productname}}</td>
                     <td class="others">{{$items[$i]->amount}}</td>
                     <td class="others"></td>
-                </tr>  
+                </tr>
             @endfor
         </table>
     </div>
 
+        <div class="review-form">
+            <form action="{{route('order.store' )}} " method="POST">
+            @csrf
+                <input type="submit" value="buy">
+            </form>
+        </div>
+
+
+
     {{-- <div class="table">
         <table id="customers">
             <tr>
-                <th class="first">{{__('text.user')}}</th>  
+                <th class="first">{{__('text.user')}}</th>
                 <th class="first">{{__('text.review')}}</th>
                 <th class="first">{{__('text.rating')}}</th>
                 <th class="first">{{__('text.actions')}}</th>
             </tr>
             @foreach ( $reviews as $review)
 
-            
+
 
                 @foreach ($users as $user)
                     @if ($user->id === $review->userID)
@@ -49,10 +58,10 @@
                     buttons
                 </td>
             </tr>
-            
+
 
             @endforeach
-    
+
         </table>
     </div> --}}
 

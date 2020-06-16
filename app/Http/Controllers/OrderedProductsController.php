@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\OrderedProducts;
 use App\Products;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderedProductsController extends Controller
 {
@@ -43,7 +45,18 @@ class OrderedProductsController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $current_user = Auth::user();
+        $cartproducts = Products::where('id', '=', $current_user->id)->get();
+        dd($cartproducts, $current_user);
+        foreach($cartproducts as $cartproduct){
+            $orderedproduct= new OrderedProducts;
+            $orderedproduct->productID = $cartproduct->ProductID;
+            $orderedproduct->userID = $cartproduct->userID;
+            $orderedproduct->amount = $cartproduct->amount;
+            $orderedproduct->save();
+
+            }
+            return redirect()->route('home');
     }
 
     /**
