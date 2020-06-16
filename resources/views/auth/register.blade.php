@@ -70,7 +70,7 @@
         <div class="">
             <label for="role" class="">{{__('text.admin_code')}}</label>
             <div class="">
-                <input id="role" type="text" class="form-control @error('role') is-invalid @enderror" name="role" value="{{ old('role') }}" autocomplete="role" autofocus>
+                <input id="role" type="text" class="form-control @error('role') is-invalid @enderror" value="{{ old('role') }}" name="role" autocomplete="role"> 
                 @error('role')
                     <span class="invalid-feedback" role="alert">
                         <strong>{{ $message }}</strong>
@@ -79,7 +79,7 @@
             </div>
         </div>
 
-        
+
         {{-- addresses    addresses    addresses    addresses    addresses --}}
         <br>
         <div class="">
