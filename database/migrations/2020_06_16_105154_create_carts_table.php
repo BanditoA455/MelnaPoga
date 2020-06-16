@@ -13,12 +13,18 @@ class CreateCartsTable extends Migration
      */
     public function up()
     {
-        Schema::create('carts', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
+        Schema::dropIfExists('cart');
+        Schema::create('cart', function (Blueprint $table) {
+            $table->bigIncrements('id');
+            // $table->unsignedBigInteger('orderID');
+            // $table->foreign('orderID')->references('id')->on('orders');
+            $table->unsignedBigInteger('userID');
+            $table->foreign('userID')->references('id')->on('users');
+            $table->unsignedBigInteger('ProductID');
+            $table->foreign('ProductID')->references('id')->on('products');
+            $table->integer('amount');
+    });
     }
-
     /**
      * Reverse the migrations.
      *
