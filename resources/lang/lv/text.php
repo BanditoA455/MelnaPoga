@@ -67,4 +67,14 @@ return [
     'product_name' => 'Produkta nosaukums',
     'user' => 'Lietotāja',
     'buy' => 'Pirkt',
+
+    //login page
+    'welcome_login' => 'Pieslēdzies',
+    'password' => 'Parole',
+    'remember' => 'Atcerēties mani',
+    'forgot' => 'Aizmirsāt paroli?',
+
+    //register page
+    'confirm_password' => 'Apstiprināt paroli',
+    'admin_code' => 'Admina kods (tikai priekš adminiem)',
 ];

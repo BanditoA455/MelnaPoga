@@ -10,8 +10,30 @@ body{
   font-size: 50px;
   text-align: center;
   background-color: rgb(129, 141, 156);
-  padding-bottom: 60px;
+  padding-bottom: 10px;
   padding-top: 50px;
+}
+
+.header-back{
+  list-style-type: none;
+  overflow: hidden;
+  position: sticky;
+  background-color: rgb(129, 141, 156);
+}
+
+.header-item{
+  display: block;
+  font-size: 20px;
+  color: #333;
+  text-align: center;
+  padding: 20px 20px;
+  text-decoration: none;
+  font-family: Courier;
+}
+
+.header-item:hover{
+  background-color: rgb(77, 97, 122);
+  color: #F59B00;
 }
 
 /* NAVBAR    NAVBAR    NAVBAR    NAVBAR    NAVBAR */
@@ -19,22 +41,8 @@ body{
     margin-top:60px;
   width: 60px;
   z-index:2000;
-
   position: fixed;
   position: -webkit-sticky; /* Safari */
-  /* position: sticky; */
-
-
-
-
-
-
-
-
-
-
-
-
 }
 
 .logo:hover{

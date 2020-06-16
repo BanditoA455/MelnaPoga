@@ -17,8 +17,14 @@
             <h1><strong>Melnā poga</strong></h1>
         </div>
         <div>
+            <ul class="header-back">
+                <li class="float_right"><a class="header-item" href="/lang/lv">LV</a></li>
+                <li class="float_right"><a class="header-item" href="/lang/en">EN</a></li>
+            </ul>
+        </div>
+        <div>
             <ul class="navback">
-                {{-- <li class="float_left"><img id="logo" onclick="sidenav()" class="logo" src="/images/logo.png"></li> --}}
+                @yield('NavBarImage')
                 <li class="float_left"><a href="{{ url('/') }}" class="navbar_item">{{__('text.home')}}</a></li>
                 <li class="float_left"><a href="{{ url('/support') }}" class="navbar_item">{{__('text.support')}}</a></li>
                 <li class="float_left"><a href="{{ url('/about') }}" class="navbar_item">{{__('text.about')}}</a></li>
@@ -45,8 +51,6 @@
                     </li>
                     <li class="float_right"><a href="{{ route('cart.index') }}" class="navbar_item">{{__('text.cart')}}</a></li>
                 @endguest
-                <li class="float_right"><a class="navbar_item" href="/lang/lv">LV</a></li>
-                <li class="float_right"><a class="navbar_item" href="/lang/en">EN</a></li>
             </ul>
         </div>
 
