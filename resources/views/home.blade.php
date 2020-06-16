@@ -6,20 +6,20 @@
 @section('SideNavContent')
     {{!! Form::open(['action' => 'ProductsController@filter', 'method' => 'get']) !!}}
     <div class="label-div">
-        {{Form::label('SmallD', 'Smallest diameter', ['class' => 'label']) }}
+        {{Form::label('SmallD', __('text.small_diameter'), ['class' => 'label']) }}
         <br>
         {{Form::number('SmallD', '', ['class' => 'input','step' => '1']) }}
     </div>
     <div class="label-div">
-        {{Form::label('LargeD', 'Largest diameter', ['class' => 'yolo']) }}
+        {{Form::label('LargeD', __('text.large_diameter'), ['class' => 'yolo']) }}
         <br>
         {{Form::number('LargeD', '', ['class' => 'input','step' => '1']) }}
     </div>
 
 
     <div class="label-div">
-        {{Form::label('type', 'Type', ['class' => 'label']) }}
-
+        {{Form::label('type', __('text.type'), ['class' => 'label']) }}
+        <br>
         {{-- <select class="form-control" name="type" id="type" data-parsley-required="true">
             @foreach ($types as $types)
                 <option value="{{ $types }}">{{ $types }}</option>
@@ -29,7 +29,7 @@
 
     </div>
     <div class="label-div">
-        {{Form::label('color', 'Color', ['class' => 'label']) }}
+        {{Form::label('color', __('text.color'), ['class' => 'label']) }}
         <br>
         {{-- <select class="form-control" name="color" id="color" data-parsley-required="true">
             @foreach ($colors as $colors)
@@ -40,17 +40,17 @@
 
     </div>
     <div class="label-div">
-        {{Form::label('cheap', 'Cheapest:', ['class' => 'label']) }}
+        {{Form::label('cheap', __('text.cheapest'), ['class' => 'label']) }}
         <br>
         {{Form::number('cheap', '', ['class' => 'input','step' => '0.01']) }}
     </div>
     <div class="label-div">
-        {{Form::label('exp', 'Most expensive:', ['class' => 'label']) }}
+        {{Form::label('exp', __('text.expensive'), ['class' => 'label']) }}
         <br>
         {{Form::number('exp', '', ['class' => 'input' ,'step' => '0.01']) }}
     </div>
     <div class="filter-button">
-        {{Form::submit('Add filters') }}
+        {{Form::submit(__('text.add_filters')) }}
     </div>
     {{!! Form::close() !!}}
 

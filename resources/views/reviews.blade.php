@@ -5,15 +5,15 @@
 
 @section('BodyContent')
 
-    <div class="cout">This is the reviews page for: {{$product->productname}}</div>
+    <div class="cout">{{__('text.welcome_review')}} {{$product->productname}}</div>
 
     <div class="table">
         <table id="customers">
             <tr>
-                <th class="first">User</th>  {{-- te apvieno first name un last name--}}
-                <th class="first">Review</th>
-                <th class="first">Rating</th>
-                <th class="first">Actions</th>
+                <th class="first">{{__('text.user')}}</th>  {{-- te apvieno first name un last name--}}
+                <th class="first">{{__('text.review')}}</th>
+                <th class="first">{{__('text.rating')}}</th>
+                <th class="first">{{__('text.actions')}}</th>
             </tr>
             @foreach ( $reviews as $review)
 
@@ -39,11 +39,11 @@
     </div>
 
     @guest
-    <div class="cannot">You need to log in to leave a review</div>
+    <div class="cannot">{{__('text.login_review')}}</div>
     @else
         <div class="review-form">
             <form action="{{route('reviews.create', $product->id)}}">
-                <input type="submit" value="Add a review">
+                <input type="submit" value="{{__('text.add_review')}}">
             </form>
         </div>
     @endguest

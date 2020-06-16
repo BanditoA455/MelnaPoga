@@ -4,10 +4,6 @@
     <link href="{{ asset('css/view.css') }}" rel="stylesheet">
 @endsection
 
-@section('SideNavContent')
-    <p class="label-div">Teksts, kuru knapi redz</p>
-@endsection
-
 @section('BodyContent')
-    <div class="cout">You are in the about page</div>
+    <div class="cout">{{__('text.welcome_about')}}</div>
 @endsection

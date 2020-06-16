@@ -7,5 +7,5 @@
 @endsection
 
 @section('BodyContent')
-    <div class="cout">You are in the support page</div>
+<div class="cout">{{__('text.welcome_support')}}</div>
 @endsection
