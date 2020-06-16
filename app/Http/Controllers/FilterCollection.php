@@ -22,7 +22,7 @@ class FilterCollection
                     'escape' => 'all',
                 ],
 
-            'SmallD' =>
+                'SmallD' =>
                 [
                     'operator'=> '>=',
                     'column' => 'productdiameter',

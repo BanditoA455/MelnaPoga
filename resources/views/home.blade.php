@@ -20,23 +20,14 @@
     <div class="label-div">
         {{Form::label('type', __('text.type'), ['class' => 'label']) }}
         <br>
-        {{-- <select class="form-control" name="type" id="type" data-parsley-required="true">
-            @foreach ($types as $types)
-                <option value="{{ $types }}">{{ $types }}</option>
-            @endforeach
-        </select> --}}
+
 {!! Form::select('type', $types,  null, ['class' => 'input']) !!}
 
     </div>
     <div class="label-div">
         {{Form::label('color', __('text.color'), ['class' => 'label']) }}
         <br>
-        {{-- <select class="form-control" name="color" id="color" data-parsley-required="true">
-            @foreach ($colors as $colors)
-                <option value="{{ $colors }}">{{ $colors }}</option>
-            @endforeach
-        </select> --}}
-{!! Form::select('color', $colors, null, ['class' => 'input']) !!}
+    {!! Form::select('color', $colors, null, ['class' => 'input']) !!}
 
     </div>
     <div class="label-div">
@@ -49,7 +40,7 @@
         <br>
         {{Form::number('exp', '', ['class' => 'input' ,'step' => '0.01']) }}
     </div>
-    <div class="filter-button">
+    <div class="filter-button input">
         {{Form::submit(__('text.add_filters'), ['class' => 'addfilter']) }}
     </div>
     {{!! Form::close() !!}}
@@ -89,7 +80,7 @@
                         <label class="amount" for="amount">{{__('text.amount')}} </label>
                         <input class="input-product inline" type="number" name="amount" input value="0">
                         <div class= "float_right" >
-                        <input class= "add inline" type="submit" value="{{__('text.addToCart')}}">
+                            <input class= "add inline" type="submit" value="{{__('text.addToCart')}}">
                         </div>
 
                     </form>
