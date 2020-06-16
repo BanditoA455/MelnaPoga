@@ -1,4 +1,4 @@
-@extends('layouts.app2')
+@extends('layouts.app1')
 
 @section('BodyContent')
 
@@ -8,7 +8,7 @@
         @csrf
 
         <div class="">
-            <label for="FirstName" class=""> {{ __('text.FirstName') }} </label>
+            <label for="FirstName" class=""> {{ __('text.first_name') }} </label>
             <div class="">
                 <input id="FirstName" type="text" class="form-control @error('FirstName') is-invalid @enderror" name="FirstName" value="{{ old('FirstName') }}" required autocomplete="FirstName" autofocus>
                 @error('FirstName')
@@ -21,7 +21,7 @@
 
 
         <div class="">
-            <label for="LastName" class=""> {{ __('text.LastName') }} </label>
+            <label for="LastName" class=""> {{ __('text.last_name') }} </label>
             <div class="">
                 <input id="LastName" type="text" class="form-control @error('LastName') is-invalid @enderror" name="LastName" value="{{ old('LastName') }}" required autocomplete="LastName" autofocus>
                 @error('LastName')
@@ -119,7 +119,7 @@
         </div>
 
         <div class="">
-            <label for="number" class="">{{__('text.number')}}</label>
+            <label for="number" class="">{{__('text.house_number')}}</label>
             <div class="">
                 <input id="number" type="text" class="form-control @error('number') is-invalid @enderror" name="number" value="{{ old('number') }}" autocomplete="number" autofocus>
                 @error('number')

@@ -1,6 +1,10 @@
-@extends('layouts.app3')
+@extends('layouts.app1')
 
 @section('HeadContent')
+@endsection
+
+@section('NavBarImage')
+    <li class="float_left"><img id="logo" onclick="sidenav()" class="logo" src="/images/logo.png"></li>
 @endsection
 
 @section('SideNavContent')

@@ -62,9 +62,19 @@ return [
     'street' => 'Street',
     'house_number' => 'House number',
     'submit' => 'Submit',
-    '' => '',
-    '' => '',
-    '' => '',
-    '' => '',
-    '' => '',
+
+    //cart page
+    'product_name' => 'Product name',
+    'user' => 'Users',
+    'buy' => 'Buy',
+
+    //login page
+    'welcome_login' => 'Login',
+    'password' => 'Password',
+    'remember' => 'Remember Me',
+    'forgot' => 'Forgot your password?',
+
+    //register page
+    'confirm_password' => 'Confirm password',
+    'admin_code' => 'Admin code (only for admins)',
 ];
