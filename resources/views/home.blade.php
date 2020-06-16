@@ -50,7 +50,7 @@
         {{Form::number('exp', '', ['class' => 'input' ,'step' => '0.01']) }}
     </div>
     <div class="filter-button">
-        {{Form::submit(__('text.add_filters')) }}
+        {{Form::submit(__('text.add_filters'), ['class' => 'addfilter']) }}
     </div>
     {{!! Form::close() !!}}
 
@@ -71,28 +71,33 @@
         <div class= "product">
                 <div class="float-left"><img class=" product-picture"  src={{asset('images/'.$product->id.'.jpg')}} alt="{{$product->productname}}"></div>
                 <div class=" product-text">
-                    <ul>
-                        <li>{{$product->productname}}</li>
-                            {{$product->producttype}} /
+                    <div class="middletext">
+                        <div class="clear">{{$product->productname}}</div>
+                        <br>
+                           <div class="clear"> {{$product->producttype}} /
                             {{$product->productcolor}} /
-                            {{$product->productdiameter}} mm
-                        <li>{{$product->productprice}} €</li>
-                    </ul>
+                            {{$product->productdiameter}} mm</div>
+                        <br><div>
+                        <div >{{$product->productprice}} €</div> </div>
+                    </div>
                 </div>
                 <br>
                 <div class="product-form">
 
                     <form action="{{route('cart', ['id' => $product->id])}}">
 
-                        <label for="amount"> {{__('text.amount')}} </label>
-                        <input type="number" name="amount">
-                        <br>
-                        <input type="submit" value="{{__('text.addToCart')}}">
+                        <label class="amount" for="amount">{{__('text.amount')}} </label>
+                        <input class="input-product inline" type="number" name="amount" input value="0">
+                        <div class= "float_right" >
+                        <input class= "add inline" type="submit" value="{{__('text.addToCart')}}">
+                        </div>
+
                     </form>
 
                     {{-- <a href="{{route('reviews.index', $product->id)}}" > <input type="button" value="{{$product->id}}"> </a> --}}
                     {{-- <a href="/reviews/"+{{$product->id}}> <input type="button" value="{{$product->id}}"> </a> --}}
-                    <a href={{route('reviews.index', $product->id)}}> <input type="button" value="{{__('text.reviews')}}"> </a>
+                    <a href={{route('reviews.index', $product->id)}}> <input class="review" type="button" value="{{__('text.reviews')}}"> </a>
+
                     {{-- <a href="{{route('reviews.index', ['id' => $product->id])}}"> <input type="button" value="Reviews"> </a> --}}
                 </div>
 
