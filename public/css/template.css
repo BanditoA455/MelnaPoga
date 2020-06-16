@@ -184,14 +184,14 @@ body{
 
 .review-form input{
   border: 1px solid #ddd;
-  border-radius: 15px;
+  border-radius: 5px;
   padding: 10px;
-  background-color: #1d1f21;
+  background-color: white;
 
 }
 
 .review-form input:hover{
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(59, 172, 59)
 }
 
 .cannot{

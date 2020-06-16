@@ -20,7 +20,12 @@ Route::get('/cart', 'CartController@index')->name('cart.index')->middleware('aut
 Route::post('cart/{id}/store', 'CartController@store')->name('cart.store')->middleware('auth');
 Route::get('/cart', 'CartController@index')->name('cart.index')->middleware('auth');
 
+Route::post('/cart/{id}/destroy', 'CartController@destroy')->name('cart.destroy')->middleware('auth');
+
 Route::post('/cart', 'OrderedProductsController@store')->name('order.store')->middleware('auth');
+
+
+
 
 Route::get('/about', function () {
     return view('about');
