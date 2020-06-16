@@ -1,4 +1,4 @@
-git pul<?php
+<?php
 
 namespace App\Http\Controllers\Auth;
 

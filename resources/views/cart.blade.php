@@ -4,15 +4,15 @@
 @endsection
 
 @section('BodyContent')
-    <h1 class="cout">Users {{$user->FirstName}} cart</h1>
+    <h1 class="cout">{{__('text.user')}} {{$user->FirstName}} {{__('text.cart')}}</h1>
 
     <div class="table">
         <table id="customers">
             <tr>
                 <th class="first">#</th>
-                <th class="first">Product name</th>
-                <th class="first">Amount</th>
-                <th class="first">Actions</th>
+                <th class="first">{{__('text.product_name')}}</th>
+                <th class="first">{{__('text.amount')}}</th>
+                <th class="first">{{__('text.actions')}}</th>
             </tr>
             @for ($i = 0 ; $i < count($products); $i++)
                 <tr class="row">
@@ -28,7 +28,7 @@
         <div class="review-form">
             <form action="{{route('order.store' )}} " method="POST">
             @csrf
-                <input type="submit" value="buy">
+                <input type="submit" value="{{__('text.buy')}}">
             </form>
         </div>
 

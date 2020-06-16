@@ -33,7 +33,7 @@ return [
     'welcome_about' => 'Jūs atrodaties Par mums lapā',
 
     //review page
-    'welcome_review' => 'Komentārs produktam:',
+    'welcome_review' => 'Komentāri produktam:',
     'login_review' => 'Jums vajag pieslēgties, lai pievienotu komentāru',
     'add_review' => 'Pievienot komentāru',
     'user' => 'Lietotājs',
@@ -62,4 +62,9 @@ return [
     'street' => 'Iela',
     'house_number' => 'Mājas numurs',
     'submit' => 'Iesniegt',
+
+    //cart page
+    'product_name' => 'Produkta nosaukums',
+    'user' => 'Lietotāja',
+    'buy' => 'Pirkt',
 ];
