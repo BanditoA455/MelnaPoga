@@ -6,42 +6,51 @@
 @section('SideNavContent')
     {{!! Form::open(['action' => 'ProductsController@filter', 'method' => 'get']) !!}}
     <div class="label-div">
-        {{Form::label('SmallD', 'Diameter - from:', ['class' => 'label']) }}
+        {{Form::label('SmallD', __('text.small_diameter'), ['class' => 'label']) }}
         <br>
         {{Form::number('SmallD', '', ['class' => 'input','step' => '1']) }}
     </div>
     <div class="label-div">
-        {{Form::label('LargeD', 'to:', ['class' => 'yolo']) }}
+        {{Form::label('LargeD', __('text.large_diameter'), ['class' => 'yolo']) }}
         <br>
         {{Form::number('LargeD', '', ['class' => 'input','step' => '1']) }}
     </div>
 
 
     <div class="label-div">
-        {{Form::label('type', 'Type', ['class' => 'label']) }}
-
-
+        {{Form::label('type', __('text.type'), ['class' => 'label']) }}
+        <br>
+        {{-- <select class="form-control" name="type" id="type" data-parsley-required="true">
+            @foreach ($types as $types)
+                <option value="{{ $types }}">{{ $types }}</option>
+            @endforeach
+        </select> --}}
 {!! Form::select('type', $types,  null, ['class' => 'input']) !!}
 
     </div>
     <div class="label-div">
-        {{Form::label('color', 'Color', ['class' => 'label']) }}
-
+        {{Form::label('color', __('text.color'), ['class' => 'label']) }}
+        <br>
+        {{-- <select class="form-control" name="color" id="color" data-parsley-required="true">
+            @foreach ($colors as $colors)
+                <option value="{{ $colors }}">{{ $colors }}</option>
+            @endforeach
+        </select> --}}
 {!! Form::select('color', $colors, null, ['class' => 'input']) !!}
 
     </div>
     <div class="label-div">
-        {{Form::label('cheap', 'Price - from:', ['class' => 'label']) }}
+        {{Form::label('cheap', __('text.cheapest'), ['class' => 'label']) }}
         <br>
         {{Form::number('cheap', '', ['class' => 'input','step' => '0.01']) }}
     </div>
     <div class="label-div">
-        {{Form::label('exp', 'to:', ['class' => 'label']) }}
+        {{Form::label('exp', __('text.expensive'), ['class' => 'label']) }}
         <br>
         {{Form::number('exp', '', ['class' => 'input' ,'step' => '0.01']) }}
     </div>
-    <div class="filter-button input">
-        {{Form::submit('Find', ['class' => 'addfilter']) }}
+    <div class="filter-button">
+        {{Form::submit(__('text.add_filters'), ['class' => 'addfilter']) }}
     </div>
     {{!! Form::close() !!}}
 
@@ -49,10 +58,11 @@
 
 @section('BodyContent')
     @guest
-        <div class="cout">std::cout << "Hello, World!" << endl;</div>
-    @else
-        <div class="cout">std::cout << "Hello, {{$user->FirstName ?? 'World'}}!" << endl;</div>
+        <div class="cout">std::cout << "{{ __('text.hello') }}, {{__('text.world')}}!" << endl;</div>
+    @else    
+        <div class="cout">std::cout << "{{__('text.hello')}}, {{$user->FirstName}}!" << endl;</div>
     @endguest
+    
 
 
 <div  class="container">
@@ -76,20 +86,23 @@
 
                     <form action="{{route('cart', ['id' => $product->id])}}">
 
-                        <label class="amount" for="amount">Amount: </label>
+                        <label class="amount" for="amount">{{__('text.amount')}} </label>
                         <input class="input-product inline" type="number" name="amount" input value="0">
                         <div class= "float_right" >
-                        <input class= "add inline" type="submit" value="Add to cart">
+                        <input class= "add inline" type="submit" value="{{__('text.addToCart')}}">
                         </div>
+
                     </form>
 
                     {{-- <a href="{{route('reviews.index', $product->id)}}" > <input type="button" value="{{$product->id}}"> </a> --}}
                     {{-- <a href="/reviews/"+{{$product->id}}> <input type="button" value="{{$product->id}}"> </a> --}}
-                    <a href={{route('reviews.index', $product->id)}}> <input class="review" type="button" value="Reviews"> </a>
+                    <a href={{route('reviews.index', $product->id)}}> <input class="review" type="button" value="{{__('text.reviews')}}"> </a>
+
                     {{-- <a href="{{route('reviews.index', ['id' => $product->id])}}"> <input type="button" value="Reviews"> </a> --}}
                 </div>
 
         </div>
     @endforeach
 </div>
+
 @endsection

@@ -13,12 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// navbar links
-// Route::get('/', function () {
-//     return view('home');
-// });
-
-
+Route::get('lang/{locale}','LanguageController');
 
 //Route::resource('/', 'ProductsController');
 Route::get('/cart/{id}', 'OrderedProductsController@index')->name('cart');
@@ -56,3 +51,4 @@ Auth::routes();
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UserController', ['except' => ['show', 'create', 'store'] ]);
 });
+
