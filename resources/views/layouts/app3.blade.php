@@ -43,7 +43,7 @@
                         </a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> @csrf </form>
                     </li>
-                    <li class="float_right"><a href="{{ route('home') }}" class="navbar_item">{{__('text.cart')}}</a></li>
+                    <li class="float_right"><a href="{{ route('cart.index') }}" class="navbar_item">{{__('text.cart')}}</a></li>
                 @endguest
                 <li class="float_right"><a class="navbar_item" href="/lang/lv">LV</a></li>
                 <li class="float_right"><a class="navbar_item" href="/lang/en">EN</a></li>
