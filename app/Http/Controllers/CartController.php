@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Cart;
+use App\Products;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CartController extends Controller
 {
@@ -14,7 +16,19 @@ class CartController extends Controller
      */
     public function index()
     {
-        //
+        $user = Auth::user();
+        $items = Cart::where('userID', '=', $user->id)->get();
+        $len = count($items);
+        $products = [];
+        for($i = 0; $i < $len; $i++){
+            $products[$i] = Products::where('id', '=', $items[$i]->ProductID)->first();
+        }
+        // $products = Products::where('id', '=', $items[0]->ProductID)->get();
+        return view('cart')->with([
+            'user' => $user,
+            'items' => $items,
+            'products' => $products
+        ]);
     }
 
     /**
@@ -33,9 +47,15 @@ class CartController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, $id)
     {
-        //
+        $user = Auth::user();
+        $cart = new Cart;
+        $cart->userID = $user->id;
+        $cart->ProductID = $id;
+        $cart->amount = $request->amount;
+        $cart->save();
+        return redirect()->route('home');
     }
 
     /**

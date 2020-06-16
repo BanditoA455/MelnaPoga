@@ -4,7 +4,11 @@ namespace App\Http\Controllers;
 
 use App\OrderedProducts;
 use App\Products;
+use App\Cart;
+use App\Order;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class OrderedProductsController extends Controller
 {
@@ -43,7 +47,39 @@ class OrderedProductsController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
+        $current_user = Auth::user();
+        $cartproducts = Cart::where('userID', '=', $current_user->id)->get();
+        $order = new Order;
+        $order->userID = $current_user->id;
+        $order->orderstatus = 'pasutits';
+        $order->ordertotalprice = 0;
+        $order->save();
+        $orderID = $order->id;
+        // dd($cartproducts, $current_user);
+        //dd($orderID);
+        $supertotalprice = 0;
+        foreach($cartproducts as $cartproduct){
+            $orderedproduct= new OrderedProducts;
+            $orderedproduct->orderID=$orderID;
+            $orderedproduct->productID = $cartproduct->ProductID;
+            // $orderedproduct->userID = $cartproduct->userID;
+            $product = Products::where('id', '=', $cartproduct->ProductID)->first();
+            //dd($product);
+            $productprice = $product->productprice;
+            $orderedproduct->amount = $cartproduct->amount;
+            $totalPrice  =  $productprice*($cartproduct->amount);
+            $orderedproduct->price = $totalPrice;
+            $orderedproduct->save();
+            $supertotalprice = $supertotalprice +$totalPrice;
+            }
+            $order->ordertotalprice = $supertotalprice;
+            $order->save();
+
+        $collection = Cart::where('userID',$current_user->id)->get(['id']);
+        Cart::destroy($collection->toArray());
+          //  $cartproducts->whereIn('userID', $current_user->id)->delete();
+      //  $cartproducts->save();
+            return redirect()->route('home');
     }
 
     /**

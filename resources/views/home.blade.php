@@ -75,8 +75,10 @@
                 <br>
                 <div class="product-form">
 
-                    <form action="{{route('cart', ['id' => $product->id])}}">
-
+                    <form action="{{route('cart.store', ['id' => $product->id])}}" method="POST">
+                    {{-- <form action="{{route('cart.store', $product->id )}}" method="POST"> --}}
+                        @csrf
+                        
                         <label class="amount" for="amount">{{__('text.amount')}} </label>
                         <input class="input-product inline" type="number" name="amount" input value="0">
                         <div class= "float_right" >
@@ -84,12 +86,7 @@
                         </div>
 
                     </form>
-
-                    {{-- <a href="{{route('reviews.index', $product->id)}}" > <input type="button" value="{{$product->id}}"> </a> --}}
-                    {{-- <a href="/reviews/"+{{$product->id}}> <input type="button" value="{{$product->id}}"> </a> --}}
                     <a href={{route('reviews.index', $product->id)}}> <input class="review" type="button" value="{{__('text.reviews')}}"> </a>
-
-                    {{-- <a href="{{route('reviews.index', ['id' => $product->id])}}"> <input type="button" value="Reviews"> </a> --}}
                 </div>
 
         </div>

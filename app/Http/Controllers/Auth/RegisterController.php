@@ -1,4 +1,4 @@
-<?php
+git pul<?php
 
 namespace App\Http\Controllers\Auth;
 
@@ -29,7 +29,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    
+
     // protected $redirectTo = RouteServiceProvider::HOME;
     protected $redirectTo = '/';
 
@@ -84,7 +84,7 @@ class RegisterController extends Controller
                 'role' => 'user',
                 'password' => Hash::make($data['password'])
             ]);
-        }  
+        }
     }
 
 }
