@@ -79,6 +79,57 @@
             </div>
         </div>
 
+        
+        {{-- addresses    addresses    addresses    addresses    addresses --}}
+        <br>
+        <div class="">
+            <label for="country" class="">{{__('text.country')}}</label>
+            <div class="">
+                <input id="country" type="text" class="form-control @error('country') is-invalid @enderror" name="country" value="{{ old('country') }}" autocomplete="country" autofocus>
+                @error('country')
+                    <span class="invalid-feedback" country="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+
+        <div class="">
+            <label for="city" class="">{{__('text.city')}}</label>
+            <div class="">
+                <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}" autocomplete="city" autofocus>
+                @error('city')
+                    <span class="invalid-feedback" city="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+
+        <div class="">
+            <label for="street" class="">{{__('text.street')}}</label>
+            <div class="">
+                <input id="street" type="text" class="form-control @error('street') is-invalid @enderror" name="street" value="{{ old('street') }}" autocomplete="street" autofocus>
+                @error('street')
+                    <span class="invalid-feedback" street="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+
+        <div class="">
+            <label for="number" class="">{{__('text.number')}}</label>
+            <div class="">
+                <input id="number" type="text" class="form-control @error('number') is-invalid @enderror" name="number" value="{{ old('number') }}" autocomplete="number" autofocus>
+                @error('number')
+                    <span class="invalid-feedback" number="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                @enderror
+            </div>
+        </div>
+
 
         <div class="">
             <div class="">

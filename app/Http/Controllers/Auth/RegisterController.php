@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use App\User;
+use App\Address;
 use Illuminate\Foundation\Auth\RegistersUsers;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -68,23 +69,35 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if ($data['role'] === 'A455'){
-            return User::create([
-                'FirstName' => $data['FirstName'],
-                'LastName' => $data['LastName'],
-                'email' => $data['email'],
-                'role' => 'admin',
-                'password' => Hash::make($data['password'])
-            ]);
-        } else {
-            return User::create([
-                'FirstName' => $data['FirstName'],
-                'LastName' => $data['LastName'],
-                'email' => $data['email'],
-                'role' => 'user',
-                'password' => Hash::make($data['password'])
-            ]);
-        }  
+        
+            $user = new User;
+            $user->FirstName = $data['FirstName'];
+            $user->LastName = $data['LastName'];
+            $user->email = $data['email'];
+            if ($data['role'] === 'A455'){
+                $user->role = 'admin';
+            } else {
+                $user->role = 'user';
+            }
+            $user->password = Hash::make($data['password']);
+            $user->save();
+
+            $address = new Address;
+            $address->userID = $user->id;
+            $address->country = $data['country'];
+            $address->city = $data['city'];
+            $address->street = $data['street'];
+            $address->number = $data['number'];
+            $address->save();
+            return $user;
+       
+            // return User::create([
+            //     'FirstName' => $data['FirstName'],
+            //     'LastName' => $data['LastName'],
+            //     'email' => $data['email'],
+            //     'role' => 'user',
+            //     'password' => Hash::make($data['password'])
+            // ]);  
     }
 
 }
