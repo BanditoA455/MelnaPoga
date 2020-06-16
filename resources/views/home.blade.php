@@ -58,7 +58,7 @@
 
 @section('BodyContent')
     @guest
-        <div class="cout">std::cout << "{{__('text.hello')}}, {{__('text.world')}}!" << endl;</div>
+        <div class="cout">std::cout << "{{ __('text.hello') }}, {{__('text.world')}}!" << endl;</div>
     @else    
         <div class="cout">std::cout << "{{__('text.hello')}}, {{$user->FirstName}}!" << endl;</div>
     @endguest

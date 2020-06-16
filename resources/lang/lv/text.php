@@ -1,7 +1,7 @@
 <?php
 
 return [
-    'hello' => 'Sveikid',
+    'hello' => 'Sveiki',
     'world' => 'Pasaule',
     'amount' => 'Daudzums',
     'addToCart' => 'Ielikt grozā',

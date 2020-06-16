@@ -29,10 +29,10 @@
 
                 @guest
                 
-                @if (Route::has('register'))
-                    <li class="float_right"><a href="{{ route('register') }}" class="navbar_item">Register</a></li>
-                    <li class="float_right"><a href="{{ route('login') }}" class="navbar_item">Log in</a></li>
-                @endif
+                    @if (Route::has('register'))
+                        <li class="float_right"><a href="{{ route('register') }}" class="navbar_item">Register</a></li>
+                        <li class="float_right"><a href="{{ route('login') }}" class="navbar_item">Log in</a></li>
+                    @endif
                 
                 @else
                     <li class="float_right">
@@ -45,6 +45,8 @@
                     </li>
                     <li class="float_right"><a href="{{ route('home') }}" class="navbar_item">Cart</a></li>
                 @endguest
+                <li class="float_right"><a class="navbar_item" href="/lang/lv">LV</a></li>
+                <li class="float_right"><a class="navbar_item" href="/lang/en">EN</a></li> 
             </ul>
         </div>
 
