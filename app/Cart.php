@@ -4,11 +4,16 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Order extends Model
+class Cart extends Model
 {
+
+    protected $table = "cart";
+
     public $timestamps = false; //this is needed so laravel woudnt try to insert time stamps in to our table
 
     protected $fillable = [
-        'userID', 'orderstatus', 'ordertotalprice',
-    ];
+        'id', 'ProductID', 'userID', 'amount',
+   ];
+
+   
 }

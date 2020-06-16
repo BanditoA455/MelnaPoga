@@ -5,17 +5,17 @@
 
 @section('BodyContent')
 
-    <div class="cout">Here is the list of users</div>
+    <div class="cout">{{__('text.welcome_users')}}</div>
 
     <div class="table">
         <table id="customers">
             <tr>
                 <th class="first">#</th>
-                <th class="first">First name</th>
-                <th class="first">Last name</th>
-                <th class="first">email</th>
-                <th class="first">Address</th>
-                <th class="first" colspan="2">Actions</th>
+                <th class="first">{{__('text.first_name')}}</th>
+                <th class="first">{{__('text.last_name')}}</th>
+                <th class="first">{{__('text.email')}}</th>
+                <th class="first">{{__('text.address')}}</th>
+                <th class="first" colspan="2">{{__('text.actions')}}</th>
             </tr>
             
             {{-- @foreach ( $users as $user) --}}
@@ -29,7 +29,7 @@
                 
                 <td class="others">
                     @if ($users[$i]->role == 'user')
-                        <a class="table-buttons" href="{{route('admin.users.edit', $users[$i]->id, $addresses[$i]->id)}}" > <input type="button" value="Edit"> </a>
+                        <a class="table-buttons" href="{{route('admin.users.edit', $users[$i]->id, $addresses[$i]->id)}}" > <input type="button" value="{{__('text.edit')}}"> </a>
                     @endif
                 </td>
                 <td class="others">
@@ -37,7 +37,7 @@
                         <form action="{{ route('admin.users.destroy', $users[$i]) }}" method="POST">
                             @csrf
                             {{method_field('DELETE')}}
-                            <input class="table-buttons float-left" type="submit" value="Delete">
+                            <input class="table-buttons float-left" type="submit" value="{{__('text.delete')}}">
                         </form>
                     @endif   
                 </td>

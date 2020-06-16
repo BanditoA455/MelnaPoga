@@ -13,15 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// navbar links
-// Route::get('/', function () {
-//     return view('home');
-// });
+Route::get('lang/{locale}','LanguageController');
 
+//CART
+Route::get('/cart', 'CartController@index')->name('cart.index')->middleware('auth');
+Route::post('cart/{id}/store', 'CartController@store')->name('cart.store')->middleware('auth');
+Route::get('/cart', 'CartController@index')->name('cart.index')->middleware('auth');
 
-
-//Route::resource('/', 'ProductsController');
-Route::get('/cart/{id}', 'OrderedProductsController@index')->name('cart');
+Route::post('/cart', 'OrderedProductsController@store')->name('order.store')->middleware('auth');
 
 Route::get('/about', function () {
     return view('about');
@@ -30,21 +29,11 @@ Route::get('/support', function () {
     return view('support');
 });
 
-//Route::get('reviews','ReviewsController@index')->name('reviews');
-//Route::resource('reviews', 'ReviewsController', ['except' => ['index', 'create']]);
-//Route::resource('reviews', 'ReviewsController');
+//REVIEWS
 Route::get('reviews/{id}', 'ReviewsController@index')->name('reviews.index');
 Route::get('reviews/{id}/create', 'ReviewsController@create')->name('reviews.create')->middleware('auth');
 Route::post('reviews/{id}/create', 'ReviewsController@store')->name('reviews.store')->middleware('auth');
-// Route::get('reviews/{id}', 'ReviewsController@index')->name('reviews.index');
-// Route::get('reviews/{id}/create', 'ReviewsController@create')->name('reviews.create');
-//Route::resource('reviews', 'ReviewsController');
 
-
-//Route::resource('reviews', 'ReviewsController', ['except' => ['index', 'create']]);
-
-//Route::get('reviews/{id}', 'ReviewsController@index')->name('reviews.index');
-//Route::get('reviews/{id}/create', 'ReviewsController@create')->name('reviews.create');
 
 Route::get('products','ProductsController@filter');
 Route::get('/','ProductsController@display')->name('home');
@@ -56,3 +45,4 @@ Auth::routes();
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UserController', ['except' => ['show', 'create', 'store'] ]);
 });
+
