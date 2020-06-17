@@ -117,12 +117,16 @@ class UserController extends Controller
      * @param  \App\User  $user
      * @return \Illuminate\Http\Response
      */
-    public function destroy(User $user)
+    public function destroy(Request $request, $id)
     {
         if (Gate::denies('delete-users')){
             return redirect(route('admin.users.index'));
         }
-
+        dd($request);
+        $user = User::where('id', '=', $id)->first();
+        $address = Address::where('userID', '=', $id)->get();
+        dd($address[0]->country);
+        $address->delete();
         $user->delete();
         return redirect()->route('admin.users.index');
     }

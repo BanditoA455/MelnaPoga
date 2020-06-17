@@ -10,10 +10,10 @@
         <input type="hidden" name="product_id" value="{{ $product->id }}">
         <label for="text">{{__('text.enter_new_review')}}</label>
         <br>
-        <textarea name="text" cols="150" rows="20"></textarea>
+        <textarea name="text" cols="150" rows="20" required></textarea>
         <br>
         <label for="rating">{{__('text.new_rating')}}</label>
-        <input type="number" step="0.01" min="0" max="10" name="rating">
+        <input type="number" step="0.01" min="0" max="10" name="rating" required>
         <br>
         <input class="" type="submit" value="{{__('text.new_add_review')}}">
     </form>

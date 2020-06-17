@@ -29,14 +29,15 @@
                 
                 <td class="others">
                     @if ($users[$i]->role == 'user')
-                        <a class="table-buttons" href="{{route('admin.users.edit', $users[$i]->id, $addresses[$i]->id)}}" > <input type="button" value="{{__('text.edit')}}"> </a>
+                        <a class="table-buttons" href="{{route('admin.users.edit', $users[$i]->id)}}" > <input type="button" value="{{__('text.edit')}}"> </a>
                     @endif
                 </td>
                 <td class="others">
                     @if ($users[$i]->role == 'user')
-                        <form action="{{ route('admin.users.destroy', $users[$i]) }}" method="POST">
+                        <form action="{{ route('admin.users.destroy', $users[$i]->id) }}" method="POST">
                             @csrf
                             {{method_field('DELETE')}}
+                            <input type="hidden" name="city" value="{{ $addresses[$i]->city }}">
                             <input class="table-buttons float-left" type="submit" value="{{__('text.delete')}}">
                         </form>
                     @endif   
