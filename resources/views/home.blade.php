@@ -12,12 +12,12 @@
     <div class="label-div">
         {{Form::label('SmallD', __('text.small_diameter'), ['class' => 'label']) }}
         <br>
-        {{Form::number('SmallD', '', ['class' => 'input','step' => '1']) }}
+        {{Form::number('SmallD', '', [ 'min'=>0,  'class' => 'input','step' => '1']) }}
     </div>
     <div class="label-div">
         {{Form::label('LargeD', __('text.large_diameter'), ['class' => 'yolo']) }}
         <br>
-        {{Form::number('LargeD', '', ['class' => 'input','step' => '1']) }}
+        {{Form::number('LargeD', '', ['min'=>0, 'class' => 'input','step' => '1']) }}
     </div>
 
 
@@ -37,12 +37,12 @@
     <div class="label-div">
         {{Form::label('cheap', __('text.cheapest'), ['class' => 'label']) }}
         <br>
-        {{Form::number('cheap', '', ['class' => 'input','step' => '0.01']) }}
+        {{Form::number('cheap', '', [  'min'=>0, 'class' => 'input','step' => '0.01']) }}
     </div>
     <div class="label-div">
         {{Form::label('exp', __('text.expensive'), ['class' => 'label']) }}
         <br>
-        {{Form::number('exp', '', ['class' => 'input' ,'step' => '0.01']) }}
+        {{Form::number('exp', '', [ 'min'=>0, 'class' => 'input' ,'step' => '0.01']) }}
     </div>
     <div class="filter-button input">
         {{Form::submit(__('text.add_filters'), ['class' => 'addfilter']) }}
@@ -84,7 +84,7 @@
                         @csrf
 
                         <label class="amount" for="amount">{{__('text.amount')}} </label>
-                        <input class="input-product inline" type="number" name="amount" input value="0">
+                        <input class="input-product inline" type="number" name="amount" input value="0" min="1">
                         <div class= "float_right" >
                             <input class= "add inline" type="submit" value="{{__('text.addToCart')}}">
                         </div>
