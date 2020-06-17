@@ -84,7 +84,7 @@
                         @csrf
 
                         <label class="amount" for="amount">{{__('text.amount')}} </label>
-                        <input class="input-product inline" type="number" name="amount" input value="0">
+                        <input class="input-product inline" type="number" name="amount" input value="0" min="1">
                         <div class= "float_right" >
                             <input class= "add inline" type="submit" value="{{__('text.addToCart')}}">
                         </div>
