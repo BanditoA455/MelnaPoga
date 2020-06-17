@@ -52,4 +52,12 @@ class User extends Authenticatable
             return false;
         }
     }
+
+    public function scopeisUser($id){
+        if ($this->id == $id){
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

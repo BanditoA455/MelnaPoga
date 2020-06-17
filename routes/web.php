@@ -19,14 +19,13 @@ Route::get('lang/{locale}','LanguageController');
 Route::get('/cart', 'CartController@index')->name('cart.index')->middleware('auth');
 Route::post('cart/{id}/store', 'CartController@store')->name('cart.store')->middleware('auth');
 Route::get('/cart', 'CartController@index')->name('cart.index')->middleware('auth');
-
 Route::post('/cart/{id}/destroy', 'CartController@destroy')->name('cart.destroy')->middleware('auth');
 
 Route::post('/cart', 'OrderedProductsController@store')->name('order.store')->middleware('auth');
 
 
 
-
+//NAV BAR
 Route::get('/about', function () {
     return view('about');
 });
@@ -38,15 +37,16 @@ Route::get('/support', function () {
 Route::get('reviews/{id}', 'ReviewsController@index')->name('reviews.index');
 Route::get('reviews/{id}/create', 'ReviewsController@create')->name('reviews.create')->middleware('auth');
 Route::post('reviews/{id}/create', 'ReviewsController@store')->name('reviews.store')->middleware('auth');
+Route::delete('reviews/{id}/destroy', 'ReviewsController@destroy')->name('reviews.destroy')->middleware('auth');
+Route::get('reviews/{id}/edit', 'ReviewsController@edit')->name('reviews.edit')->middleware('auth');
+Route::put('reviews/{id}/update', 'ReviewsController@update')->name('reviews.update')->middleware('auth');
 
-
+//HOME
 Route::get('products','ProductsController@filter');
 Route::get('/','ProductsController@display')->name('home');
 
 //AUTHENTICATION    AUTHENTICATION    AUTHENTICATION    AUTHENTICATION
 Auth::routes();
-//Route::get('/home', 'HomeController@index')->name('home');
-
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
     Route::resource('/users', 'UserController', ['except' => ['show', 'create', 'store'] ]);
 });

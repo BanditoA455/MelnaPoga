@@ -78,4 +78,7 @@ return [
     //register page
     'confirm_password' => 'Apstiprināt paroli',
     'admin_code' => 'Admina kods (tikai priekš adminiem)',
+
+    //edit review page
+    'edit_review' => 'Rediģēt komentāru',
 ];

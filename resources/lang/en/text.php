@@ -78,4 +78,7 @@ return [
     //register page
     'confirm_password' => 'Confirm password',
     'admin_code' => 'Admin code (only for admins)',
+
+    //edit review page
+    'edit_review' => 'Edit review',
 ];

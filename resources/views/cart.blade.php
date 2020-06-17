@@ -19,10 +19,12 @@
                     <td class="others">{{$items[$i]->id}}</td>
                     <td class="others">{{$products[$i]->productname}}</td>
                     <td class="others">{{$items[$i]->amount}}</td>
-                    <td class="others"> <form action="{{route('cart.destroy' ,[$items[$i]->id] )}} " method="POST">
-            @csrf
-                <input type="submit" value="{{__('text.remove')}}">
-            </form></td>
+                    <td class="others"> 
+                        <form action="{{route('cart.destroy' ,[$items[$i]->id] )}} " method="POST">
+                            @csrf
+                            <input type="submit" value="{{__('text.remove')}}">
+                        </form>
+                    </td>
                 </tr>
             @endfor
         </table>
