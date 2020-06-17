@@ -41,6 +41,16 @@ class CartController extends Controller
         //
     }
 
+    public function remove()
+    {
+
+
+        return redirect()->route('cart');
+    }
+
+
+
+
     /**
      * Store a newly created resource in storage.
      *
@@ -98,8 +108,16 @@ class CartController extends Controller
      * @param  \App\Cart  $cart
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Cart $cart)
+    public function destroy( $id)
     {
-        //
+       // dd( $id);
+
+        $user = Auth::user();
+        $button = Cart::where('userID', $user->id)->where('id', $id)->first();
+        Cart::destroy($button->toArray());
+        //dd( $button);
+
+        return redirect()->route('cart.index');
+
     }
 }

@@ -8,6 +8,6 @@ class LanguageController extends Controller
 {
     public function __invoke(Request $request, $locale){
         // save selected language in the language cookie
-        return redirect('/')->withCookie(cookie()->forever('language', $locale));
+        return redirect()->back()->withCookie(cookie()->forever('language', $locale));
     }
 }

@@ -8,7 +8,7 @@
 @endsection
 
 @section('SideNavContent')
-    {{!! Form::open(['action' => 'ProductsController@filter', 'method' => 'get']) !!}}
+    {{ Form::open(['action' => 'ProductsController@filter', 'method' => 'get']) }}
     <div class="label-div">
         {{Form::label('SmallD', __('text.small_diameter'), ['class' => 'label']) }}
         <br>
@@ -47,7 +47,7 @@
     <div class="filter-button input">
         {{Form::submit(__('text.add_filters'), ['class' => 'addfilter']) }}
     </div>
-    {{!! Form::close() !!}}
+    {{ Form::close() }}
 
 @endsection
 
@@ -82,7 +82,7 @@
                     <form action="{{route('cart.store', ['id' => $product->id])}}" method="POST">
                     {{-- <form action="{{route('cart.store', $product->id )}}" method="POST"> --}}
                         @csrf
-                        
+
                         <label class="amount" for="amount">{{__('text.amount')}} </label>
                         <input class="input-product inline" type="number" name="amount" input value="0">
                         <div class= "float_right" >
