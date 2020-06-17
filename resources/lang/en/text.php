@@ -67,6 +67,7 @@ return [
     'product_name' => 'Product name',
     'user' => 'Users',
     'buy' => 'Buy',
+    'remove' => 'Remove',
 
     //login page
     'welcome_login' => 'Login',

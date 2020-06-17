@@ -25,7 +25,7 @@ return [
     'cheapest' => 'Lētākais:',
     'expensive' => 'Dārgākais:',
     'add_filters' => 'Pievienot filtrus',
-    
+
     //support page
     'welcome_support' => 'Jūs atrodaties kontaktu lapā',
 
@@ -67,6 +67,7 @@ return [
     'product_name' => 'Produkta nosaukums',
     'user' => 'Lietotāja',
     'buy' => 'Pirkt',
+    'remove' => 'Noņemt',
 
     //login page
     'welcome_login' => 'Pieslēdzies',
