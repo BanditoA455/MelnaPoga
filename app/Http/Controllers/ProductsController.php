@@ -24,6 +24,13 @@ class ProductsController extends Controller
             $_colors[$color] = $color;
         }
         $colors = $_colors;
+        $_types =[];
+
+        foreach($types as $type) {
+            $_types[$type] = $type;
+        }
+        $types = $_types;
+        // ddddddd
      // $types = DB::table('products')::pluck('producttype');
 
         return view('home', [
