@@ -30,9 +30,6 @@ class ProductsController extends Controller
             $_types[$type] = $type;
         }
         $types = $_types;
-        // ddddddd
-     // $types = DB::table('products')::pluck('producttype');
-
         return view('home', [
             'products' => $prods,
             'types' =>$types,
@@ -46,21 +43,6 @@ class ProductsController extends Controller
     {
         $filters = FilterCollection::getFromRequest($request);
         $prods = FilterCollection::applyFilters($filters);
-        // $smalld = $request->input('SmallD');
-
-        //  $LargeD = $request->input('LargeD');
-        //  $type =  $request->input('type');
-        //  $color =  $request->input('color');
-       //  $allbuttons = DB::table('products')->get();
-
-        //  $filteredbuttons = QueryBuilder::for(Products::class)
-        //  $filteredbuttons = Products::where('color', $color);
-        //  return view('home', [
-        //     'products' => $filteredbuttons,
-        //     'types' =>$types,
-        //     'colors' =>$colors,
-        //     'user' => $user
-
         $types = DB::table('products')->distinct('producttype')->pluck('producttype');
         $types->prepend('all');
         $colors = DB::table('products')->distinct('productcolor')->pluck('productcolor');
@@ -75,11 +57,8 @@ class ProductsController extends Controller
             $_types[$type] = $type;
         }
         $types = $_types;
-
-        // $prods = Products::where('productcolor', $color)->get();
         $user = Auth::user();
 
-     // $types = DB::table('products')::pluck('producttype');
 
         return view('home', [
 

@@ -42,7 +42,7 @@ Route::get('reviews/{id}/edit', 'ReviewsController@edit')->name('reviews.edit')-
 Route::put('reviews/{id}/update', 'ReviewsController@update')->name('reviews.update')->middleware('auth');
 
 //HOME
-Route::get('products','ProductsController@filter');
+Route::post('products','ProductsController@filter');
 Route::get('/','ProductsController@display')->name('home');
 
 //AUTHENTICATION    AUTHENTICATION    AUTHENTICATION    AUTHENTICATION

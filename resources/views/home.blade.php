@@ -8,7 +8,7 @@
 @endsection
 
 @section('SideNavContent')
-    {{ Form::open(['action' => 'ProductsController@filter', 'method' => 'get']) }}
+    {{ Form::open(['action' => 'ProductsController@filter', 'method' => 'post']) }}
     <div class="label-div">
         {{Form::label('SmallD', __('text.small_diameter'), ['class' => 'label']) }}
         <br>

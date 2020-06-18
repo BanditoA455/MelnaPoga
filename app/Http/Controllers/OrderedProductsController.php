@@ -23,6 +23,8 @@ class OrderedProductsController extends Controller
         return view('cart')->with([
             'product' => $products
         ]);
+
+
         dd($products);
         return $products->productname;
         dd($request);
@@ -55,21 +57,22 @@ class OrderedProductsController extends Controller
         $order->ordertotalprice = 0;
         $order->save();
         $orderID = $order->id;
-        // dd($cartproducts, $current_user);
-        //dd($orderID);
+
         $supertotalprice = 0;
         foreach($cartproducts as $cartproduct){
             $orderedproduct= new OrderedProducts;
             $orderedproduct->orderID=$orderID;
             $orderedproduct->productID = $cartproduct->ProductID;
-            // $orderedproduct->userID = $cartproduct->userID;
             $product = Products::where('id', '=', $cartproduct->ProductID)->first();
-            //dd($product);
             $productprice = $product->productprice;
             $orderedproduct->amount = $cartproduct->amount;
+
+            // total price for one product
             $totalPrice  =  $productprice*($cartproduct->amount);
             $orderedproduct->price = $totalPrice;
             $orderedproduct->save();
+
+// order total price
             $supertotalprice = $supertotalprice +$totalPrice;
             }
             $order->ordertotalprice = $supertotalprice;
