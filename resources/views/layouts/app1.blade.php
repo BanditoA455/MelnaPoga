@@ -27,7 +27,6 @@
                 <li class="float_left"><a href="{{ url('/') }}" class="navbar_item">{{__('text.home')}}</a></li>
                 <li class="float_left"><a href="{{ url('/support') }}" class="navbar_item">{{__('text.support')}}</a></li>
                 <li class="float_left"><a href="{{ url('/about') }}" class="navbar_item">{{__('text.about')}}</a></li>
-                <li class="float_left"><a href="{{ route('profile.index') }}" class="navbar_item">{{__('text.profile')}}</a></li>
 
                 @can('manage-users')
                     <li class="float_left"><a href="{{ route('admin.users.index') }}" class="navbar_item">{{__('text.users')}}</a></li>
@@ -41,15 +40,21 @@
                     @endif
 
                 @else
-                    <li class="float_right">
-                        <a class="navbar_item" href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                            document.getElementById('logout-form').submit();">
-                            {{ __('text.logout') }}
-                        </a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> @csrf </form>
-                    </li>
-                    <li class="float_right"><a href="{{ route('cart.index') }}" class="navbar_item">{{__('text.cart')}}</a></li>
+                    <div class="dropdown float_right">
+                        <a href="javascript:void(0)" class="dropbtn navbar_item">{{Auth::user()->FirstName}} {{Auth::user()->LastName}}</a>
+                        <div class="dropdown_content">
+                            <a href="{{ route('profile.index') }}" class="navbar_item">{{__('text.profile')}}</a>
+                            <a class="navbar_item" href="{{ route('cart.index') }}">{{__('text.cart')}}</a>
+                            <a class="navbar_item" href="{{ route('logout') }}"
+                                onclick="event.preventDefault();
+                                document.getElementById('logout-form').submit();">
+                                {{ __('text.logout') }}
+                            </a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;"> @csrf </form>
+                        </div>
+                    </div>
+                    <img class="float_right navbar_avatar" src="/avatars/{{Auth::user()->avatar}}" alt="Profile picture">
+                    
                 @endguest
             </ul>
         </div>

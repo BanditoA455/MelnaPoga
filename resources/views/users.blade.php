@@ -4,6 +4,18 @@
     <div class="cout">{{$user->FirstName}} welcome to youre profile page</div>
 
     <div>
+        <img src="/avatars/{{$user->avatar}}" alt="Profile picture">
+        <div>
+            <form enctype="multipart/form-data" action="{{route('profile.avatar')}}" method="POST">
+                @csrf
+                <label for="avatar">Update profile image</label>
+                <input type="file" name="avatar">
+                <input type="submit" value="Add">
+            </form>
+        </div>
+    </div>
+
+    <div>
         <form action="{{route('admin.users.update', $user)}}" method="POST">
             @csrf
             {{method_field('PUT')}}

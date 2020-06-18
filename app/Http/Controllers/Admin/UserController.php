@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\User;
 use App\Address;
 use Gate;
+use Image;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
@@ -38,6 +39,24 @@ class UserController extends Controller
             'user' => $user,
             'address' => $address
         ]); 
+    }
+
+    public function avatar(Request $request)
+    {
+        $user = Auth::user();
+        if($request->hasFile('avatar')){
+            $avatar = $request->file('avatar');
+            $filename = time() . '.' . $avatar->getClientOriginalExtension();
+            Image::make($avatar)->resize(300, 300)->save(public_path('/avatars/' . $filename));
+            
+            $user->avatar = $filename;
+            $user->save();
+        }
+        $address = Address::where('userID', '=', $user->id)->first();
+        return view('users')->with([
+            'user' => $user,
+            'address' => $address
+        ]);
     }
 
     //    THIS ISN'T NEEDED, BECAUSE USERS CAN REGISTER ON THEIR OWN

@@ -9,7 +9,7 @@
 
 @section('SideNavContent')
     {{ Form::open(['action' => 'ProductsController@filter', 'method' => 'post']) }}
-    <div class="label-div">
+    <div class="label-div first_label">
         {{Form::label('SmallD', __('text.small_diameter'), ['class' => 'label']) }}
         <br>
         {{Form::number('SmallD', '', [ 'min'=>0,  'class' => 'input','step' => '1']) }}

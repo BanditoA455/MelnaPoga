@@ -25,6 +25,7 @@ Route::post('/cart', 'OrderedProductsController@store')->name('order.store')->mi
 
 //USERS PAGE
 Route::get('/profile', 'Admin\UserController@profile')->name('profile.index')->middleware('auth');
+Route::post('/profile', 'Admin\UserController@avatar')->name('profile.avatar')->middleware('auth');
 
 
 //NAV BAR
