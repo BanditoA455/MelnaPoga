@@ -1,7 +1,6 @@
 @extends('layouts.app1')
 
 @section('BodyContent')
-    <div class="cout">edit</div>
 
     <form action="{{route('reviews.update', $review->id)}}" method="POST">
         @csrf

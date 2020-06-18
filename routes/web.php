@@ -48,6 +48,6 @@ Route::get('/','ProductsController@display')->name('home');
 //AUTHENTICATION    AUTHENTICATION    AUTHENTICATION    AUTHENTICATION
 Auth::routes();
 Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
-    Route::resource('/users', 'UserController', ['except' => ['show', 'create', 'store'] ]);
+    Route::resource('/users', 'UserController', ['except' => ['show', 'create', 'store', 'destroy'] ]);
 });
 

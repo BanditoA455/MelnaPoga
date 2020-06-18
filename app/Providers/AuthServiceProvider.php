@@ -36,9 +36,5 @@ class AuthServiceProvider extends ServiceProvider
         Gate::define('delete-users', function ($user) {
             return $user->hasRole('admin'); 
         });
-
-        Gate::define('is-the-current-user', function ($userID){
-            return $userID->isUser($userID);
-        });
     }
 }

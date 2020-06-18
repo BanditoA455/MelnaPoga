@@ -179,6 +179,7 @@ body{
 .row:hover{
   background-color: white;
 }
+
 #customers {
   font-family: Courier, Ariel;
   border-collapse: collapse;
