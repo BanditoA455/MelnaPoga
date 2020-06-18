@@ -60,11 +60,25 @@ class CartController extends Controller
     public function store(Request $request, $id)
     {
         $user = Auth::user();
-        $cart = new Cart;
-        $cart->userID = $user->id;
-        $cart->ProductID = $id;
-        $cart->amount = $request->amount;
-        $cart->save();
+
+//-----------------------------
+$currentcart = Cart::where('productID', $id)->first();
+if ($currentcart === null){
+    $cart = new Cart;
+    $cart->userID = $user->id;
+    $cart->ProductID = $id;
+    $cart->amount = $request->amount;
+    $cart->save();
+    }
+else {
+   $currentcart->amount = $currentcart->amount + $request->amount;
+   $currentcart->save();
+    }
+
+
+
+//----------------------------
+
         return redirect()->route('home');
     }
 
