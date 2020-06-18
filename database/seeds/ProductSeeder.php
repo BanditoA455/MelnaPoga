@@ -25,7 +25,7 @@ class ProductSeeder extends Seeder
             ]);
         //2
         DB::table('products')->insert([
-            'productname' => 'white power',
+            'productname' => 'snow white',
             'producttype' => 'flat',
             'productcolor' => 'white',
             'productdiameter' => '16',
