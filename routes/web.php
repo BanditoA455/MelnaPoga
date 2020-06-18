@@ -23,6 +23,8 @@ Route::post('/cart/{id}/destroy', 'CartController@destroy')->name('cart.destroy'
 
 Route::post('/cart', 'OrderedProductsController@store')->name('order.store')->middleware('auth');
 
+//USERS PAGE
+Route::get('/profile', 'Admin\UserController@profile')->name('profile.index')->middleware('auth');
 
 
 //NAV BAR
@@ -47,7 +49,8 @@ Route::get('/','ProductsController@display')->name('home');
 
 //AUTHENTICATION    AUTHENTICATION    AUTHENTICATION    AUTHENTICATION
 Auth::routes();
-Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('can:manage-users')->group(function(){
-    Route::resource('/users', 'UserController', ['except' => ['show', 'create', 'store', 'destroy'] ]);
+Route::namespace('Admin')->prefix('admin')->name('admin.')->middleware('auth')->group(function(){
+    Route::resource('/users', 'UserController', ['except' => ['show', 'create', 'store', 'destroy', 'update'] ])->middleware('can:manage-users');
+    Route::put('users/{user}', 'UserController@update')->name('users.update');
 });
 

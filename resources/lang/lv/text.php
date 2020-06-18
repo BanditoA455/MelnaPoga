@@ -81,4 +81,7 @@ return [
 
     //edit review page
     'edit_review' => 'Rediģēt komentāru',
+
+    //user profile page
+    'profile' => 'Profils',
 ];

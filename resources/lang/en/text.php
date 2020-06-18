@@ -81,4 +81,7 @@ return [
 
     //edit review page
     'edit_review' => 'Edit review',
+
+    //user profile page
+    'profile' => 'Profile',
 ];

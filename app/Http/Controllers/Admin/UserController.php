@@ -7,6 +7,7 @@ use App\Address;
 use Gate;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -26,6 +27,16 @@ class UserController extends Controller
         return view('admin.users.index')->with([
             'users'=> $users,
             'addresses' => $addresses
+        ]); 
+    }
+
+    public function profile()
+    {
+        $user = Auth::user();
+        $address = Address::where('userID', '=', $user->id)->first();
+        return view('users')->with([
+            'user' => $user,
+            'address' => $address
         ]); 
     }
 
@@ -70,9 +81,9 @@ class UserController extends Controller
      */
     public function edit(User $user)
     {
-        if (Gate::denies('edit-users')){
-            return redirect(route('admin.users.index'));
-        }
+        // if (Gate::denies('edit-users')){
+        //     return redirect(route('admin.users.index'));
+        // }
 
         $address = Address::where('userID', '=', $user->id)->first();
         return view('admin.users.edit')->with([
@@ -107,8 +118,13 @@ class UserController extends Controller
         } else {
             $request->session()->flash('error', 'Error updating user');
         }
-
-        return redirect()->route('admin.users.index');
+        if ($user->role == 'admin'){
+            return redirect()->route('admin.users.index');
+        } else{
+            return redirect()->route('profile.index');
+        }
+        
+        
     }
 
     /**
