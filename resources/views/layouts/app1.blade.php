@@ -11,7 +11,7 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
     </head>
-    <body class="{{ $theme . '-theme' }}">
+    <body>
         <div class="header">
             <h1><strong>Melnā poga</strong></h1>
         </div>
