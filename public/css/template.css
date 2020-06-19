@@ -105,7 +105,7 @@ body{
   text-decoration: none;
   display: block;
   text-align: left;
-} 
+}
 
 .dropdown:hover .dropdown_content {
   display: block;
@@ -149,7 +149,6 @@ body{
 }
 
 .sidenav .closebtn:hover{
-  background-color: white;
   font-size: 50px;
 }
 
