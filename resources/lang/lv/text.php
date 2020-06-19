@@ -84,4 +84,8 @@ return [
 
     //user profile page
     'profile' => 'Profils',
+    'usergreeting' => 'sveiciens savā profila lapā',
+    'update_pic' => 'Uzlādēt profila attēlu',
+    'choose' => 'Izvēlēties',
+
 ];

@@ -62,8 +62,8 @@ class CartController extends Controller
         $user = Auth::user();
 
         //-----------------------------
-        $currentcart = Cart::where('productID', $id)->first();
-        if ($currentcart === null){
+        $currentcart = Cart::where('productID', $id)->where('userID', $user->id )->first();
+        if ($currentcart == null){
             $cart = new Cart;
             $cart->userID = $user->id;
             $cart->ProductID = $id;
