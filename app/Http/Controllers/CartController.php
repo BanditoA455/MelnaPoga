@@ -129,7 +129,8 @@ class CartController extends Controller
 
         $user = Auth::user();
         $button = Cart::where('userID', $user->id)->where('id', $id)->first();
-        Cart::destroy($button->toArray());
+        $button->delete();
+        //Cart::destroy($button->toArray());
         //dd( $button);
 
         return redirect()->route('cart.index');
