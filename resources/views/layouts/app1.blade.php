@@ -11,7 +11,7 @@
 
         <title>{{ config('app.name', 'Laravel') }}</title>
     </head>
-    <body>
+    <body class="{{ $theme . '-theme' }}">
         <div class="header">
             <h1><strong>Melnā poga</strong></h1>
         </div>
@@ -64,6 +64,7 @@
             @yield('SideNavContent')
         </div>
 
+        
         @yield('BodyContent')
 
     </body>
