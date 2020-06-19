@@ -84,4 +84,12 @@ return [
 
     //user profile page
     'profile' => 'Profile',
+    'usergreeting' => 'welcome to your profile page',
+    'update_pic' => 'Update profile image',
+    'choose' => 'Choose',
+
+
+
+
+
 ];

@@ -64,6 +64,7 @@
             @yield('SideNavContent')
         </div>
 
+        
         @yield('BodyContent')
 
     </body>

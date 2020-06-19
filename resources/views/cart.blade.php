@@ -32,42 +32,9 @@
 
         <div class="review-form">
             <form action="{{route('order.store' )}} " method="POST">
-            @csrf
+                @csrf
                 <input type="submit" value="{{__('text.buy')}}">
             </form>
         </div>
-
-
-
-    {{-- <div class="table">
-        <table id="customers">
-            <tr>
-                <th class="first">{{__('text.user')}}</th>
-                <th class="first">{{__('text.review')}}</th>
-                <th class="first">{{__('text.rating')}}</th>
-                <th class="first">{{__('text.actions')}}</th>
-            </tr>
-            @foreach ( $reviews as $review)
-
-
-
-                @foreach ($users as $user)
-                    @if ($user->id === $review->userID)
-                        <td class="others">{{$user->FirstName}} {{$user->LastName}}</td>
-                    @endif
-                @endforeach
-
-                <td class="others">{{$review->review}}</td>
-                <td class="others">{{$review->rating}}</td>
-                <td class="others">
-                    buttons
-                </td>
-            </tr>
-
-
-            @endforeach
-
-        </table>
-    </div> --}}
 
 @endsection

@@ -363,3 +363,26 @@ padding-bottom: 0px;
   width: 220px;
 
 }
+/* users*/
+.outer { width: 100%; }
+.inner { width: 250px; margin: 0 auto; }
+.boxx {
+    width:300px;
+padding:30px;
+background: linear-gradient(0deg, rgba(186,186,186,1) 0%, rgba(231,231,231,1) 73%, rgba(189,189,189,1) 100%);
+}
+.pad {
+    padding:0px;
+    margin-bottom :8px;
+    width:100%;
+    box-sizing : border-box;
+}
+
+.bottom {
+    height:100px;
+}
+
+.userimage{
+    margin-bottom:20px;
+    border-radius: 10px;
+}
